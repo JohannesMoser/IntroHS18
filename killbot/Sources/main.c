@@ -46,7 +46,7 @@ int main(void)
   /*** Processor Expert internal initialization. DON'T REMOVE THIS CODE!!! ***/
   PE_low_level_init();
   /*** End of Processor Expert internal initialization.                    ***/
-long Andy = 31;
+long Andy = 32;
   /* Write your code here */
   /* For example: for(;;) { } */
 
