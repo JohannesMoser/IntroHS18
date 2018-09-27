@@ -3,7 +3,7 @@
   <Header>
     <Name>TEAM_Robot</Name>
     <SavedBy>Erich Styger</SavedBy>
-    <ModificationStamp>235</ModificationStamp>
+    <ModificationStamp>237</ModificationStamp>
     <Date>2016-02-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>826</ProjectCompNumb>
+    <ProjectCompNumb>840</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -91,17 +91,17 @@
   </UserFolder>
   <CPU>
     <Repository>file:/${ProcessorExpert_loc}/Repositories/Kinetis_Repository</Repository>
-    <ComponentUUID>com.freescale.processorexpert.processor.mk22fn1m0lk12</ComponentUUID>
-    <BeanType>MK22FN1M0LK12</BeanType>
+    <ComponentUUID>com.freescale.processorexpert.processor.mk22fn1m0ll12</ComponentUUID>
+    <BeanType>MK22FN1M0LL12</BeanType>
     <Name>Cpu</Name>
-    <CompNumb>260</CompNumb>
+    <CompNumb>831</CompNumb>
     <CompEnabled>true</CompEnabled>
     <GenCodeMode>ALWAYS_WRITE</GenCodeMode>
     <IconName>CPU_CHIP2</IconName>
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.014</BeanVersion>
+    <BeanVersion>01.015</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -114,7 +114,7 @@
         <ItemSymbol>CPU</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>MK22FX512VLK12</Value>
+        <Value>MK22FX512VLL12</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SharedInternalProperties</ItemSymbol>
@@ -148,7 +148,7 @@
         <ItemSymbol>ClockSettingGrp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>ICLK</ItemSymbol>
@@ -326,7 +326,7 @@
         <ItemSymbol>IRCLKGrp0</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>IRCLKENCLKMode0</ItemSymbol>
@@ -588,7 +588,7 @@
         <ItemSymbol>Intperiphgrp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>SharedADC0</ItemSymbol>
@@ -623,7 +623,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>ADC0Async_FullPower</Value>
+        <Value>Auto select</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>ADC1CondGrp</ItemSymbol>
@@ -779,7 +779,7 @@
         <ItemSymbol>JTAGGrp</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>JTAGMode</ItemSymbol>
@@ -5543,7 +5543,25 @@
         <EnumSymbVal>disabled</EnumSymbVal>
       </ItemState>
       <ItemState>
+        <ItemSymbol>SIMClkGateUART4</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisSIMClkGate</TypeSpecNameState>
+        <Index>1</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
         <ItemSymbol>SIMClkGateDAC0</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisSIMClkGate</TypeSpecNameState>
+        <Index>1</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>SIMClkGateSPI2</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
@@ -6570,6 +6588,178 @@
         <Value />
       </ItemState>
       <ItemState>
+        <ItemSymbol>ExternalBusCS2</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2BaseAddr</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2BaseAddrMask</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>65535</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusBlockSize2</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusBlockMaskReduced2</ItemSymbol>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>HEX</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2WriteProtect</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSWriteProtect</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2WaitStates</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>DEC</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2SecWaitStates</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2SecondaryWaitStates</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>0</Value>
+        <Base>DEC</Base>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2ExtendedTransfer</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSExtendedTransfer</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2AddressSetup</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSAddressSetup</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>00</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2ReadAddrHold</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSReadAddrHold</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>00</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2WriteAddrHold</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSWriteAddrHold</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>00</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2BLSMode</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSBLSMode</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>leftJustified</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2AutoAcknowledge</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSAutoAcknowledge</TypeSpecNameState>
+        <Index>1</Index>
+        <EnumSymbVal>enabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2PortSize</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSPortSize</TypeSpecNameState>
+        <Index>1</Index>
+        <EnumSymbVal>01</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2ByteMode</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSByteMode</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2BurstRead</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSBurstRead</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2BurstWrite</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <TypeSpecNameState>typeKinetisExternalBusCSBurstWrite</TypeSpecNameState>
+        <Index>0</Index>
+        <EnumSymbVal>disabled</EnumSymbVal>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusCS2PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
         <ItemSymbol>ExternalBusCS4</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
@@ -7342,12 +7532,222 @@
         <Value />
       </ItemState>
       <ItemState>
+        <ItemSymbol>ExternalBusD20PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData20Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData20PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD24PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData24Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData24PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD25PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData25Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData25PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD26PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData26Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData26PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD27PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData27Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData27PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD28PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData28Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData28PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD29PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData29Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData29PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD30PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData30Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData30PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusD31PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData31Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusData31PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
         <ItemSymbol>ExternalBusControlPinsGroup</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
         <Value>false</Value>
         <Expanded>false</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl1PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl1Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl1PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
       </ItemState>
       <ItemState>
         <ItemSymbol>ExternalBusControl2PinGrp</ItemSymbol>
@@ -7513,6 +7913,27 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>ExternalBusControl17PinSignal</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl18PinGrp</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Value>false</Value>
+        <Expanded>false</Expanded>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl18Pin</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <Value />
+        <SharedPrphMode>false</SharedPrphMode>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>ExternalBusControl18PinSignal</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <Value />
@@ -9538,7 +9959,7 @@
           <ReadOnly>false</ReadOnly>
           <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
           <ItemWasNeverEnabledInChgScript>true</ItemWasNeverEnabledInChgScript>
-          <Index>1</Index>
+          <Index>0</Index>
           <Expanded>true</Expanded>
         </ItemState>
         <ItemState>
@@ -10260,7 +10681,7 @@
       <AsmDataFormat>HEX</AsmDataFormat>
       <AsmBitsFormat>HEX</AsmBitsFormat>
       <CPUDB_Settings>
-        <CpuType>MK22FX512VLK12</CpuType>
+        <CpuType>MK22FX512VLL12</CpuType>
         <ActualClock>4</ActualClock>
         <ActualClockLow>32.768000000000</ActualClockLow>
         <DeviceNamesDefines>
@@ -10273,7 +10694,7 @@
     <CompNumb>3</CompNumb>
     <NodeName>RoboV1</NodeName>
     <CnfgEnabled>true</CnfgEnabled>
-    <TargetCPU>260</TargetCPU>
+    <TargetCPU>831</TargetCPU>
     <ConfigurationComment lines_count="0" />
     <BoolList_FpgaConfig>
       <Count>0</Count>
@@ -10362,38 +10783,38 @@
       <Value39>false</Value39>
       <ItemId40>234</ItemId40>
       <Value40>true</Value40>
-      <ItemId41>260</ItemId41>
+      <ItemId41>270</ItemId41>
       <Value41>true</Value41>
-      <ItemId42>270</ItemId42>
+      <ItemId42>276</ItemId42>
       <Value42>true</Value42>
-      <ItemId43>276</ItemId43>
+      <ItemId43>338</ItemId43>
       <Value43>true</Value43>
-      <ItemId44>338</ItemId44>
-      <Value44>true</Value44>
-      <ItemId45>378</ItemId45>
-      <Value45>false</Value45>
-      <ItemId46>380</ItemId46>
+      <ItemId44>378</ItemId44>
+      <Value44>false</Value44>
+      <ItemId45>380</ItemId45>
+      <Value45>true</Value45>
+      <ItemId46>435</ItemId46>
       <Value46>true</Value46>
-      <ItemId47>435</ItemId47>
+      <ItemId47>457</ItemId47>
       <Value47>true</Value47>
-      <ItemId48>457</ItemId48>
+      <ItemId48>518</ItemId48>
       <Value48>true</Value48>
-      <ItemId49>518</ItemId49>
-      <Value49>true</Value49>
-      <ItemId50>681</ItemId50>
+      <ItemId49>681</ItemId49>
+      <Value49>false</Value49>
+      <ItemId50>683</ItemId50>
       <Value50>false</Value50>
-      <ItemId51>683</ItemId51>
+      <ItemId51>685</ItemId51>
       <Value51>false</Value51>
-      <ItemId52>685</ItemId52>
+      <ItemId52>687</ItemId52>
       <Value52>false</Value52>
-      <ItemId53>687</ItemId53>
+      <ItemId53>689</ItemId53>
       <Value53>false</Value53>
-      <ItemId54>689</ItemId54>
+      <ItemId54>690</ItemId54>
       <Value54>false</Value54>
-      <ItemId55>690</ItemId55>
+      <ItemId55>736</ItemId55>
       <Value55>false</Value55>
-      <ItemId56>736</ItemId56>
-      <Value56>false</Value56>
+      <ItemId56>831</ItemId56>
+      <Value56>true</Value56>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
       <Count>0</Count>
@@ -10551,37 +10972,37 @@
       <Value39>false</Value39>
       <ItemId40>234</ItemId40>
       <Value40>true</Value40>
-      <ItemId41>260</ItemId41>
+      <ItemId41>270</ItemId41>
       <Value41>true</Value41>
-      <ItemId42>270</ItemId42>
+      <ItemId42>276</ItemId42>
       <Value42>true</Value42>
-      <ItemId43>276</ItemId43>
+      <ItemId43>338</ItemId43>
       <Value43>true</Value43>
-      <ItemId44>338</ItemId44>
-      <Value44>true</Value44>
-      <ItemId45>378</ItemId45>
-      <Value45>false</Value45>
-      <ItemId46>380</ItemId46>
+      <ItemId44>378</ItemId44>
+      <Value44>false</Value44>
+      <ItemId45>380</ItemId45>
+      <Value45>true</Value45>
+      <ItemId46>435</ItemId46>
       <Value46>true</Value46>
-      <ItemId47>435</ItemId47>
+      <ItemId47>457</ItemId47>
       <Value47>true</Value47>
-      <ItemId48>457</ItemId48>
+      <ItemId48>518</ItemId48>
       <Value48>true</Value48>
-      <ItemId49>518</ItemId49>
-      <Value49>true</Value49>
-      <ItemId50>681</ItemId50>
+      <ItemId49>681</ItemId49>
+      <Value49>false</Value49>
+      <ItemId50>683</ItemId50>
       <Value50>false</Value50>
-      <ItemId51>683</ItemId51>
+      <ItemId51>685</ItemId51>
       <Value51>false</Value51>
-      <ItemId52>685</ItemId52>
+      <ItemId52>687</ItemId52>
       <Value52>false</Value52>
-      <ItemId53>687</ItemId53>
+      <ItemId53>689</ItemId53>
       <Value53>false</Value53>
-      <ItemId54>689</ItemId54>
+      <ItemId54>690</ItemId54>
       <Value54>false</Value54>
-      <ItemId55>690</ItemId55>
+      <ItemId55>736</ItemId55>
       <Value55>false</Value55>
-      <ItemId56>736</ItemId56>
+      <ItemId56>831</ItemId56>
       <Value56>false</Value56>
     </BoolList_BeanConfig>
     <BoolList_TaskConfig>
@@ -10648,7 +11069,7 @@
     </ItemState>
   </Configuration>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>Shell</BeanType>
     <Name>CLS1</Name>
     <CompNumb>30</CompNumb>
@@ -11267,7 +11688,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>McuLibConfig</BeanType>
     <Name>MCUC1</Name>
     <CompNumb>435</CompNumb>
@@ -11340,7 +11761,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>Wait</BeanType>
     <Name>WAIT1</Name>
     <CompNumb>9</CompNumb>
@@ -11350,7 +11771,7 @@
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.083</BeanVersion>
+    <BeanVersion>01.082</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -11575,7 +11996,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>CriticalSection</BeanType>
     <Name>CS1</Name>
     <CompNumb>12</CompNumb>
@@ -11677,7 +12098,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>HardFault</BeanType>
     <Name>HF1</Name>
     <CompNumb>13</CompNumb>
@@ -11687,7 +12108,7 @@
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.021</BeanVersion>
+    <BeanVersion>01.020</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -11749,7 +12170,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>XFormat</BeanType>
     <Name>XF1</Name>
     <CompNumb>338</CompNumb>
@@ -11866,7 +12287,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>KinetisTools</BeanType>
     <Name>KIN1</Name>
     <CompNumb>212</CompNumb>
@@ -11876,7 +12297,7 @@
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.040</BeanVersion>
+    <BeanVersion>01.038</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -12104,7 +12525,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>Utility</BeanType>
     <Name>UTIL1</Name>
     <CompNumb>31</CompNumb>
@@ -20301,7 +20722,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>FreeRTOS</BeanType>
     <Name>FRTOS1</Name>
     <CompNumb>35</CompNumb>
@@ -20311,7 +20732,7 @@
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.561</BeanVersion>
+    <BeanVersion>01.554</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -20324,7 +20745,7 @@
         <ItemSymbol>FreeRTOSVersion</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>V10.1.0</Value>
+        <Value>V10.0.1</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>KinetisSDK</ItemSymbol>
@@ -20499,14 +20920,6 @@
         <Value>false</Value>
       </ItemState>
       <ItemState>
-        <ItemSymbol>EnableLTODebugHelper</ItemSymbol>
-        <ReadOnly>false</ReadOnly>
-        <UserReadOnly>false</UserReadOnly>
-        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <Value>false</Value>
-      </ItemState>
-      <ItemState>
         <ItemSymbol>DebugHelpersGrop</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
@@ -20514,6 +20927,14 @@
       </ItemState>
       <ItemState>
         <ItemSymbol>EnableGDBDebugHelper</ItemSymbol>
+        <ReadOnly>false</ReadOnly>
+        <UserReadOnly>false</UserReadOnly>
+        <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
+        <Index>1</Index>
+        <Value>false</Value>
+      </ItemState>
+      <ItemState>
+        <ItemSymbol>EnableLTODebugHelper</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
@@ -24068,7 +24489,7 @@
             </ItemState>
             <ItemState>
               <ItemSymbol>CmpInt</ItemSymbol>
-              <Value>INT_FTM1</Value>
+              <Value />
             </ItemState>
             <ItemState>
               <ItemSymbol>IntPriority</ItemSymbol>
@@ -26434,7 +26855,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>SeggerRTT</BeanType>
     <Name>RTT1</Name>
     <CompNumb>39</CompNumb>
@@ -26883,7 +27304,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>SeggerSystemView</BeanType>
     <Name>SYS1</Name>
     <CompNumb>40</CompNumb>
@@ -26893,7 +27314,7 @@
     <UserFolderName />
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.060</BeanVersion>
+    <BeanVersion>01.059</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -26906,7 +27327,7 @@
         <ItemSymbol>SystemViewVersion</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>V2.52b</Value>
+        <Value>V2.52a</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>SysViewAppName</ItemSymbol>
@@ -27225,7 +27646,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>LED</BeanType>
     <Name>LED_IR</Name>
     <CompNumb>44</CompNumb>
@@ -27235,7 +27656,7 @@
     <UserFolderName>Reflectance</UserFolderName>
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.075</BeanVersion>
+    <BeanVersion>01.074</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -32459,7 +32880,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>QuadCounter</BeanType>
     <Name>Q4CLeft</Name>
     <CompNumb>77</CompNumb>
@@ -33894,7 +34315,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>QuadCounter</BeanType>
     <Name>Q4CRight</Name>
     <CompNumb>84</CompNumb>
@@ -42711,7 +43132,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>RNet</BeanType>
     <Name>RNET1</Name>
     <CompNumb>190</CompNumb>
@@ -43077,7 +43498,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>nRF24L01</BeanType>
     <Name>RF1</Name>
     <CompNumb>191</CompNumb>
@@ -43087,7 +43508,7 @@
     <UserFolderName>nRF</UserFolderName>
     <Comment lines_count="0" />
     <Template />
-    <BeanVersion>01.103</BeanVersion>
+    <BeanVersion>01.101</BeanVersion>
     <LightErrorsIgnored>false</LightErrorsIgnored>
     <Properties>
       <ItemState>
@@ -47848,7 +48269,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>Timeout</BeanType>
     <Name>TMOUT1</Name>
     <CompNumb>276</CompNumb>
@@ -47992,7 +48413,7 @@
     <Events />
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>FSL_USB_Stack</BeanType>
     <Name>USB1</Name>
     <CompNumb>270</CompNumb>
@@ -48043,9 +48464,9 @@
         <UserReadOnly>false</UserReadOnly>
         <Index>0</Index>
         <RegCompType>FSL_USB_CDC_Device</RegCompType>
-        <RegCompRepository>file:/${ProcessorExpertPath:user}</RegCompRepository>
+        <RegCompRepository>file:/${home_ProcessorExpert_loc}/MyComponents</RegCompRepository>
         <InheritedComponentState>
-          <Repository>file:/${ProcessorExpertPath:user}</Repository>
+          <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
           <BeanType>FSL_USB_CDC_Device</BeanType>
           <Name>CDC1</Name>
           <CompNumb>272</CompNumb>
@@ -48198,9 +48619,9 @@
               <UserReadOnly>false</UserReadOnly>
               <Index>0</Index>
               <RegCompType>RingBuffer</RegCompType>
-              <RegCompRepository>file:/${ProcessorExpertPath:user}</RegCompRepository>
+              <RegCompRepository>file:/${home_ProcessorExpert_loc}/MyComponents</RegCompRepository>
               <InheritedComponentState>
-                <Repository>file:/${ProcessorExpertPath:user}</Repository>
+                <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
                 <BeanType>RingBuffer</BeanType>
                 <Name>Tx1</Name>
                 <CompNumb>273</CompNumb>
@@ -48527,9 +48948,9 @@
               <UserReadOnly>false</UserReadOnly>
               <Index>0</Index>
               <RegCompType>RingBuffer</RegCompType>
-              <RegCompRepository>file:/${ProcessorExpertPath:user}</RegCompRepository>
+              <RegCompRepository>file:/${home_ProcessorExpert_loc}/MyComponents</RegCompRepository>
               <InheritedComponentState>
-                <Repository>file:/${ProcessorExpertPath:user}</Repository>
+                <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
                 <BeanType>RingBuffer</BeanType>
                 <Name>Rx1</Name>
                 <CompNumb>274</CompNumb>
@@ -49292,9 +49713,9 @@
         <UserReadOnly>false</UserReadOnly>
         <Index>0</Index>
         <RegCompType>FSL_USB_MSD_Host</RegCompType>
-        <RegCompRepository>file:/${ProcessorExpertPath:user}</RegCompRepository>
+        <RegCompRepository>file:/${home_ProcessorExpert_loc}/MyComponents</RegCompRepository>
         <InheritedComponentState>
-          <Repository>file:/${ProcessorExpertPath:user}</Repository>
+          <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
         </InheritedComponentState>
       </ItemState>
       <ItemState>
@@ -52952,7 +53373,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>PercepioTrace</BeanType>
     <Name>PTRC1</Name>
     <CompNumb>378</CompNumb>
@@ -57108,7 +57529,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>GenericTimeDate</BeanType>
     <Name>TmDt1</Name>
     <CompNumb>518</CompNumb>
@@ -61993,7 +62414,7 @@
     </Events>
   </Bean>
   <Bean>
-    <Repository>file:/${ProcessorExpertPath:user}</Repository>
+    <Repository>file:/${home_ProcessorExpert_loc}/MyComponents</Repository>
     <BeanType>GenericI2C</BeanType>
     <Name>GI2C1</Name>
     <CompNumb>690</CompNumb>
