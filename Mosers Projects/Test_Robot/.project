@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>TEAM_Robot</name>
+	<name>Mosers_Robot</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -34,7 +34,13 @@
 		<link>
 			<name>Sources/TEAM_Common</name>
 			<type>2</type>
-			<locationURI>PARENT-1-PROJECT_LOC/TEAM_Common</locationURI>
+			<locationURI>copy_PARENT/TEAM_Common</locationURI>
 		</link>
 	</linkedResources>
+	<variableList>
+		<variable>
+			<name>copy_PARENT</name>
+			<value>$%7BPARENT-2-PROJECT_LOC%7D/IntroRepository/Mosers%20Projects</value>
+		</variable>
+	</variableList>
 </projectDescription>

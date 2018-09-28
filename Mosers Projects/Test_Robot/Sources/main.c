@@ -115,15 +115,26 @@ int main(void)
 
 	LEDPin1_NegVal();
 	int counter = 0;
-	int usDelay = 125;
+	int usDelay = 300;
+	int flag = 0;
+	//PWMR_Enable();
+	//PWMR_SetRatio16(0xFF);
 	for (;;) {
 		WAIT1_Waitus(usDelay);
-		if (counter == (0.5 / (usDelay / 1000000))) {
+		if (counter == (500000 / usDelay)) {
 			LEDPin1_NegVal();
 			LEDPin2_NegVal();
-			usDelay = 150;
+			if (flag == 0) {
+				usDelay = 400;
+				flag = 1;
+			} else {
+				usDelay = 300;
+				flag = 0;
+			}
+			counter = 0;
 		}
-		BUZ1_NegVal();
+		counter++;
+		//BUZ1_NegVal();
 	}
 
 	APP_Start();
