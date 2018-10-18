@@ -91,9 +91,6 @@ void QuadInt_OnInterrupt(void)
 */
 void TI2_OnInterrupt(void)
 {
-
-	//EVNT_SetEvent(EVNT_STARTUP);
-
 }
 
 /*
@@ -112,7 +109,7 @@ void TI2_OnInterrupt(void)
 */
 void TI1_OnInterrupt(void)
 {
-	//EVNT_SetEvent(EVNT_STARTUP);
+	EVNT_SetEvent(EVNT_LED_HEARTBEAT);
 }
 
 /* END Events */
