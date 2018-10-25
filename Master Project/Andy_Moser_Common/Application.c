@@ -99,8 +99,13 @@ void APP_EventHandler(EVNT_Handle event) {
 		//BtnMsg(1, "pressed");
 
 		if(BUZ_Beep(800,100)==ERR_OK){
-			int k = 12;
+
 			LED1_Neg();
+		}
+
+		else{
+
+			LED2_Neg();
 		}
 
 
