@@ -6,7 +6,7 @@
 **     Version     : Component 01.014, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-10-18, 15:16, # CodeGen: 6
 **     Abstract    :
 **
 **     Settings    :
@@ -68,7 +68,7 @@
   #include "LEDPin2.h"
   #include "BitIoLdd2.h"
   #include "SW1.h"
-  #include "BitIoLdd3.h"
+  #include "ExtIntLdd1.h"
   #include "TI1.h"
   #include "TimerIntLdd1.h"
   #include "TU1.h"
@@ -217,7 +217,7 @@
     (tIsrFunc)&Cpu_ivINT_DAC0,         /* 0x48  0x00000120   -   ivINT_DAC0                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_MCG,          /* 0x49  0x00000124   -   ivINT_MCG                      unused by PE */
     (tIsrFunc)&Cpu_ivINT_LPTMR0,       /* 0x4A  0x00000128   -   ivINT_LPTMR0                   unused by PE */
-    (tIsrFunc)&Cpu_ivINT_PORTA,        /* 0x4B  0x0000012C   -   ivINT_PORTA                    unused by PE */
+    (tIsrFunc)&ExtIntLdd1_Interrupt,   /* 0x4B  0x0000012C   8   ivINT_PORTA                    used by PE */
     (tIsrFunc)&Cpu_ivINT_PORTB,        /* 0x4C  0x00000130   -   ivINT_PORTB                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTC,        /* 0x4D  0x00000134   -   ivINT_PORTC                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTD,        /* 0x4E  0x00000138   -   ivINT_PORTD                    unused by PE */

@@ -36,6 +36,7 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "Event.h"
+#include "Keys.h"
 /*
 ** ===================================================================
 **     Event       :  Cpu_OnNMIINT (module Events)
@@ -109,7 +110,25 @@ void TI2_OnInterrupt(void)
 */
 void TI1_OnInterrupt(void)
 {
-	EVNT_SetEvent(EVNT_LED_HEARTBEAT);
+	//EVNT_SetEvent(EVNT_LED_HEARTBEAT);
+	TRG_AddTick();
+}
+
+/*
+** ===================================================================
+**     Event       :  SW1_OnInterrupt (module Events)
+**
+**     Component   :  SW1 [ExtInt]
+**     Description :
+**         This event is called when an active signal edge/level has
+**         occurred.
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void SW1_OnInterrupt(void)
+{
+  KEY_OnInterrupt(KEY_BTN1);
 }
 
 /* END Events */
