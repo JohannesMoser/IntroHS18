@@ -21,7 +21,7 @@ by the component.
 <td class="regResetVal">0x00000004</td>
  <td>FTM2_MODE register, peripheral TU1.</td></tr>
 <tr><td>0x400B8000</td><td>FTM2_SC</td>
-<td class="regNotResetVal">0x00000010</td>
+<td class="regNotResetVal">0x00000008</td>
  <td>FTM2_SC register, peripheral TU1.</td></tr>
 <tr><td>0x400B804C</td><td>FTM2_CNTIN</td>
 <td class="regResetVal">0x00000000</td>
@@ -39,13 +39,13 @@ by the component.
 <td class="regNotResetVal">0x0000FFFF</td>
  <td>FTM2_MOD register, peripheral TU1.</td></tr>
 <tr><td>0x400B8010</td><td>FTM2_C0V</td>
-<td class="regNotResetVal">0x00003D09</td>
+<td class="regNotResetVal">0x0000EA60</td>
  <td>FTM2_C0V register, peripheral TU1.</td></tr>
 <tr><td>0xE000E42C</td><td>NVICIP44</td>
 <td class="regResetVal">0x00000000</td>
  <td>NVICIP44 register, peripheral TU1.</td></tr>
 <tr><td>0xE000E104</td><td>NVICISER1</td>
-<td class="regNotResetVal">0x00001000</td>
+<td class="regNotResetVal">0x08001000</td>
  <td>NVICISER1 register, peripheral TU1.</td></tr>
 </table>
 Color Denotes Reset Value
@@ -213,13 +213,13 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400B8000</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000010</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00000008</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>7</td><td>TOF</td><td>0x00</td><td>Timer Overflow Flag</td>
 <tr><td>6</td><td>TOIE</td><td>0x00</td><td>Timer Overflow Interrupt Enable</td>
 <tr><td>5</td><td>CPWMS</td><td>0x00</td><td>Center-Aligned PWM Select</td>
-<tr><td>3 - 4</td><td>CLKS</td><td>0x02</td><td>Clock Source Selection</td>
+<tr><td>3 - 4</td><td>CLKS</td><td>0x00</td><td>Clock Source Selection</td>
 <tr><td>0 - 2</td><td>PS</td><td>0x00</td><td>Prescale Factor Selection</td>
 </tr></table>
 <div class="reghdr1">FTM2_CNTIN</div>
@@ -523,10 +523,10 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x400B8010</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00003D09</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x0000EA60</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
-<tr><td>0 - 15</td><td>VAL</td><td>0x00</td><td>Channel Value</td>
+<tr><td>0 - 15</td><td>VAL</td><td>0x8000</td><td>Channel Value</td>
 </tr></table>
 <div class="reghdr1">NVICIP44</div>
 <div class="regdiag">
@@ -589,7 +589,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0xE000E104</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x00001000</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x08001000</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>SETENA</td><td>0x00</td><td>Interrupt set enable bits</td>
@@ -613,7 +613,7 @@ registers of the peripheral(s) configured by the component.
 **            Channel 0                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : FTM2_C0V
-**                Offset                                   : 500 ms
+**                Offset                                   : 1 ms
 **                Output on compare                        : Disconnect
 **                Interrupt                                : Enabled
 **                  Interrupt                              : INT_FTM2

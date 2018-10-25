@@ -6,7 +6,7 @@
 **     Component   : Shell
 **     Version     : Component 01.098, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-10-18, 15:59, # CodeGen: 14
 **     Abstract    :
 **         Module implementing a command line shell.
 **     Settings    :
@@ -20,7 +20,7 @@
 **            Wait                                         : WAIT1
 **            Timeout (ms)                                 : 50
 **            Wait Time (ms)                               : 2
-**            RTOS Wait                                    : yes
+**            RTOS Wait                                    : no
 **          Status Colon Pos                               : 13
 **          Help Semicolon Pos                             : 26
 **          Multi Command                                  : Enabled

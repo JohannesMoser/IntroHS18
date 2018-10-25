@@ -141,7 +141,7 @@ PE_DEBUGHALT();
         <Wait v="WAIT1" />
         <Timeout__ms_ v="50" />
         <Wait_Time__ms_ v="2" />
-        <RTOS_Wait v="yes" />
+        <RTOS_Wait v="no" />
       </boolgroup>
       <Status_Colon_Pos v="13" />
       <Help_Semicolon_Pos v="26" />
@@ -535,16 +535,28 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="BitIO">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="SW1" />
       <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
+        <Enabled v="N" />
         <Template v="BitIO_LDD" />
         <Properties>
           <Component_name v="BitIoLdd3" />
           <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
+          <Pull_resistor sel_value="no pull resistor">
+            
+autoselected pull
+
+            <EmptySection_DummyValue />
+          </Pull_resistor>
+          <Open_drain sel_value="The settings is irrelevant for input direction">
+            
+push-pull
+
+            <EmptySection_DummyValue />
+          </Open_drain>
           <Direction v="Input" />
           <group name="Initialization">
             <Init__direction v="Input" />
@@ -552,6 +564,8 @@ PE_DEBUGHALT();
             <Auto_initialization v="yes" />
           </group>
           <Safe_mode v="yes" />
+          <Optimization_for v="speed" />
+          <Implement_using v="EGPIO" />
         </Properties>
         <Methods>
           <Init v="generate code" />
@@ -598,25 +612,19 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="ExtInt">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="SW1" />
       <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="ExtInt_LDD">
-        <Enabled v="N" />
+        <Enabled v="Y" />
         <Template v="ExtInt_LDD" />
         <Properties>
           <Component_name v="ExtIntLdd1" />
           <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
-          <Generate_interrupt_on sel_value="rising edge">
-            
-rising or falling edge
-
-            <EmptySection_DummyValue />
-          </Generate_interrupt_on>
+          <Generate_interrupt_on v="falling edge" />
           <Interrupt v="INT_PORTA" />
           <Interrupt_priority v="medium priority" />
-          <Interrupt_preserve_registers v="yes" />
           <group name="Initialization">
             <Enabled_in_init__code v="yes" />
           </group>
@@ -1419,7 +1427,7 @@ push-pull
         <Interrupt v="INT_FTM2" />
         <Interrupt_priority v="0" />
       </boolgroup>
-      <Interrupt_period v="500 ms" />
+      <Interrupt_period v="1 ms" />
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1442,7 +1450,7 @@ push-pull
               <Interrupt v="INT_FTM2" />
               <Interrupt_priority v="0" />
             </boolgroup>
-            <Interrupt_period v="500 ms" />
+            <Interrupt_period v="1 ms" />
             <group name="Initialization">
               <Enabled_in_init__code v="yes" />
               <group name="Event mask">
@@ -1527,7 +1535,7 @@ push-pull
         <group name="Channel 0">
           <enumgroup name="Mode" v="Compare">
             <Compare v="FTM2_C0V" />
-            <Offset v="500 ms" />
+            <Offset v="1 ms" />
             <enumgroup name="Output on compare" v="Disconnect">
               <EmptySection_DummyValue />
             </enumgroup>
