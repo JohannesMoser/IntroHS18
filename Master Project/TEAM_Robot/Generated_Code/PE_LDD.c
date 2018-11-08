@@ -6,7 +6,7 @@
 **     Version     : Component 01.014, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
 **     Abstract    :
 **
 **     Settings    :
@@ -56,8 +56,8 @@
 
 /* MODULE PE_LDD. */
 
-/* {Default RTOS Adapter} No RTOS includes */
-/* {Default RTOS Adapter} No RTOS driver includes */
+#include "FreeRTOS.h" /* FreeRTOS interface */
+/* {FreeRTOS RTOS Adapter} No RTOS driver includes */
 
 #include "PE_LDD.h"
 #include "Cpu.h"
@@ -69,7 +69,8 @@
 ** Array of initialized device structures of LDD components.
 ** ===========================================================================
 */
-LDD_TDeviceData *PE_LDD_DeviceDataList[27] = {
+LDD_TDeviceData *PE_LDD_DeviceDataList[28] = {
+    NULL,
     NULL,
     NULL,
     NULL,
@@ -170,6 +171,8 @@ bool PE_PeripheralUsed(uint32_t PrphBaseAddress)
     case 0x400FF0C0UL:
     /* Base address allocated by peripheral(s) PTA */
     case 0x400FF000UL:
+    /* Base address allocated by peripheral(s) PIT */
+    case 0x40037000UL:
     /* Base address allocated by peripheral(s) FTM2 */
     case 0x400B8000UL:
     /* Base address allocated by peripheral(s) PTC */
@@ -178,8 +181,6 @@ bool PE_PeripheralUsed(uint32_t PrphBaseAddress)
     case 0x40039000UL:
     /* Base address allocated by peripheral(s) FTM0 */
     case 0x40038000UL:
-    /* Base address allocated by peripheral(s) PIT */
-    case 0x40037000UL:
     /* Base address allocated by peripheral(s) FTFE */
     case 0x40020000UL:
     /* Base address allocated by peripheral(s) ADC1 */

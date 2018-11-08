@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K20P48M50SF0RM Rev. 1, Oct 2011
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-18, 14:57, # CodeGen: 4
+**     Date/Time   : 2018-10-18, 15:46, # CodeGen: 8
 **     Abstract    :
 **
 **     Settings    :

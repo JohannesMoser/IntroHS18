@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -27,7 +27,7 @@
 **            Channel 0                                    : 
 **              Mode                                       : Compare
 **                Compare                                  : FTM2_C0V
-**                Offset                                   : 500 ms
+**                Offset                                   : 1 ms
 **                Output on compare                        : Disconnect
 **                Interrupt                                : Enabled
 **                  Interrupt                              : INT_FTM2
@@ -109,7 +109,7 @@
 
 #include "TimerIntLdd1.h"
 #include "TU1.h"
-/* {Default RTOS Adapter} No RTOS includes */
+#include "FreeRTOS.h" /* FreeRTOS interface */
 #include "IO_Map.h"
 
 #ifdef __cplusplus
@@ -131,10 +131,10 @@ typedef struct {
 
 typedef TU1_TDeviceData *TU1_TDeviceDataPtr; /* Pointer to the device data structure. */
 
-/* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
+/* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static TU1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
-/* {Default RTOS Adapter} Global variable used for passing a parameter into ISR */
-static TU1_TDeviceDataPtr INT_FTM2__DEFAULT_RTOS_ISRPARAM;
+/* {FreeRTOS RTOS Adapter} Global variable used for passing a parameter into ISR */
+static TU1_TDeviceDataPtr INT_FTM2__BAREBOARD_RTOS_ISRPARAM;
 
 #define AVAILABLE_EVENTS_MASK (LDD_TEventMask)(LDD_TIMERUNIT_ON_CHANNEL_0)
 #define LAST_CHANNEL 0x00U
@@ -170,7 +170,7 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
 
   if (PE_LDD_DeviceDataList[PE_LDD_COMPONENT_TU1_ID] == NULL) {
     /* Allocate device structure */
-    /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+    /* {FreeRTOS RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
     DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
     DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
     DeviceDataPrv->InitCntr = 1U;      /* First initialization */
@@ -183,8 +183,8 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
     return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
   }
   /* Interrupt vector(s) allocation */
-  /* {Default RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
-  INT_FTM2__DEFAULT_RTOS_ISRPARAM = DeviceDataPrv;
+  /* {FreeRTOS RTOS Adapter} Set interrupt vector: IVT is static, ISR parameter is passed by the global variable */
+  INT_FTM2__BAREBOARD_RTOS_ISRPARAM = DeviceDataPrv;
   /* SIM_SCGC3: FTM2=1 */
   SIM_SCGC3 |= SIM_SCGC3_FTM2_MASK;
   /* FTM2_MODE: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,FAULTIE=0,FAULTM=0,CAPTEST=0,PWMSYNC=0,WPDIS=1,INIT=0,FTMEN=0 */
@@ -203,15 +203,15 @@ LDD_TDeviceData* TU1_Init(LDD_TUserData *UserDataPtr)
   FTM2_MOD = FTM_MOD_MOD(0xFFFF);      /* Set up modulo register */
   /* FTM2_C0SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHF=0,CHIE=1,MSB=0,MSA=1,ELSB=0,ELSA=0,??=0,DMA=0 */
   FTM2_C0SC = (FTM_CnSC_CHIE_MASK | FTM_CnSC_MSA_MASK); /* Set up channel status and control register */
-  /* FTM2_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0x3D09 */
-  FTM2_C0V = FTM_CnV_VAL(0x3D09);      /* Set up channel value register */
+  /* FTM2_C0V: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,VAL=0xEA60 */
+  FTM2_C0V = FTM_CnV_VAL(0xEA60);      /* Set up channel value register */
   DeviceDataPrv->EnEvents = 0x01U;     /* Enable selected events */
   /* NVICIP44: PRI44=0 */
   NVICIP44 = NVIC_IP_PRI44(0x00);
   /* NVICISER1: SETENA|=0x1000 */
   NVICISER1 |= NVIC_ISER_SETENA(0x1000);
-  /* FTM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TOF=0,TOIE=0,CPWMS=0,CLKS=2,PS=0 */
-  FTM2_SC = (FTM_SC_CLKS(0x02) | FTM_SC_PS(0x00)); /* Set up status and control register */
+  /* FTM2_SC: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TOF=0,TOIE=0,CPWMS=0,CLKS=1,PS=0 */
+  FTM2_SC = (FTM_SC_CLKS(0x01) | FTM_SC_PS(0x00)); /* Set up status and control register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TU1_ID,DeviceDataPrv);
   return ((LDD_TDeviceData *)DeviceDataPrv); /* Return pointer to the device data structure */
@@ -252,7 +252,7 @@ LDD_TError TU1_SetEventMask(LDD_TDeviceData *DeviceDataPtr, LDD_TEventMask Event
   if ((EventMask & ((LDD_TEventMask)~AVAILABLE_EVENTS_MASK)) != 0U) {
     return ERR_PARAM_MASK;
   }
-  /* {Default RTOS Adapter} Critical section begin, general PE function is used */
+  /* {FreeRTOS RTOS Adapter} Critical section begin (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
   EnterCritical();
   if ((EventMask & LDD_TIMERUNIT_ON_CHANNEL_0) != 0U) { /* Is the event enabled? */
     FTM_PDD_ClearChannelInterruptFlag(FTM2_BASE_PTR, ChannelDevice[0]); /* If yes then clear flag */
@@ -262,7 +262,7 @@ LDD_TError TU1_SetEventMask(LDD_TDeviceData *DeviceDataPtr, LDD_TEventMask Event
     FTM_PDD_DisableChannelInterrupt(FTM2_BASE_PTR, ChannelDevice[0]); /* Disable channel 0 interrupt */
   }
   DeviceDataPrv->EnEvents = EventMask;
-  /* {Default RTOS Adapter} Critical section end, general PE function is used */
+  /* {FreeRTOS RTOS Adapter} Critical section ends (RTOS function call is defined by FreeRTOS RTOS Adapter property) */
   ExitCritical();
   return ERR_OK;
 }
@@ -420,8 +420,8 @@ LDD_TError TU1_GetOffsetTicks(LDD_TDeviceData *DeviceDataPtr, uint8_t ChannelIdx
 */
 PE_ISR(TU1_Interrupt)
 {
-  /* {Default RTOS Adapter} ISR parameter is passed through the global variable */
-  TU1_TDeviceDataPtr DeviceDataPrv = INT_FTM2__DEFAULT_RTOS_ISRPARAM;
+  /* {FreeRTOS RTOS Adapter} ISR parameter is passed through the global variable */
+  TU1_TDeviceDataPtr DeviceDataPrv = INT_FTM2__BAREBOARD_RTOS_ISRPARAM;
 
   LDD_TEventMask State = 0U;
 

@@ -6,7 +6,7 @@
 **     Version     : Component 01.014, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-08, 15:13, # CodeGen: 15
 **     Abstract    :
 **
 **     Settings    :
@@ -68,13 +68,16 @@
   #include "LEDPin2.h"
   #include "BitIoLdd2.h"
   #include "SW1.h"
-  #include "BitIoLdd3.h"
+  #include "ExtIntLdd1.h"
+  #include "FRTOS1.h"
+  #include "RTOSCNTRLDD1.h"
   #include "TI1.h"
   #include "TimerIntLdd1.h"
   #include "TU1.h"
   #include "BUZ1.h"
   #include "BitIoLdd4.h"
   #include "RTT1.h"
+  #include "SYS1.h"
   #include "LED_IR.h"
   #include "LEDpin3.h"
   #include "BitIoLdd5.h"
@@ -153,11 +156,11 @@
     (tIsrFunc)&Cpu_ivINT_Reserved8,    /* 0x08  0x00000020   -   ivINT_Reserved8                unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved9,    /* 0x09  0x00000024   -   ivINT_Reserved9                unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved10,   /* 0x0A  0x00000028   -   ivINT_Reserved10               unused by PE */
-    (tIsrFunc)&Cpu_ivINT_SVCall,       /* 0x0B  0x0000002C   -   ivINT_SVCall                   unused by PE */
+    (tIsrFunc)&vPortSVCHandler,        /* 0x0B  0x0000002C   -   ivINT_SVCall                   used by PE */
     (tIsrFunc)&Cpu_ivINT_DebugMonitor, /* 0x0C  0x00000030   -   ivINT_DebugMonitor             unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved13,   /* 0x0D  0x00000034   -   ivINT_Reserved13               unused by PE */
-    (tIsrFunc)&Cpu_ivINT_PendableSrvReq, /* 0x0E  0x00000038   -   ivINT_PendableSrvReq           unused by PE */
-    (tIsrFunc)&Cpu_ivINT_SysTick,      /* 0x0F  0x0000003C   -   ivINT_SysTick                  unused by PE */
+    (tIsrFunc)&vPortPendSVHandler,     /* 0x0E  0x00000038   -   ivINT_PendableSrvReq           used by PE */
+    (tIsrFunc)&vPortTickHandler,       /* 0x0F  0x0000003C   -   ivINT_SysTick                  used by PE */
     (tIsrFunc)&Cpu_ivINT_DMA0,         /* 0x10  0x00000040   -   ivINT_DMA0                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_DMA1,         /* 0x11  0x00000044   -   ivINT_DMA1                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_DMA2,         /* 0x12  0x00000048   -   ivINT_DMA2                     unused by PE */
@@ -206,7 +209,7 @@
     (tIsrFunc)&Cpu_ivINT_CMT,          /* 0x3D  0x000000F4   -   ivINT_CMT                      unused by PE */
     (tIsrFunc)&Cpu_ivINT_RTC,          /* 0x3E  0x000000F8   -   ivINT_RTC                      unused by PE */
     (tIsrFunc)&Cpu_ivINT_RTC_Seconds,  /* 0x3F  0x000000FC   -   ivINT_RTC_Seconds              unused by PE */
-    (tIsrFunc)&Cpu_ivINT_PIT0,         /* 0x40  0x00000100   -   ivINT_PIT0                     unused by PE */
+    (tIsrFunc)&RTOSCNTRLDD1_Interrupt, /* 0x40  0x00000100   8   ivINT_PIT0                     used by PE */
     (tIsrFunc)&TU_QuadInt_Interrupt,   /* 0x41  0x00000104   15   ivINT_PIT1                     used by PE */
     (tIsrFunc)&Cpu_ivINT_PIT2,         /* 0x42  0x00000108   -   ivINT_PIT2                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_PIT3,         /* 0x43  0x0000010C   -   ivINT_PIT3                     unused by PE */
@@ -217,7 +220,7 @@
     (tIsrFunc)&Cpu_ivINT_DAC0,         /* 0x48  0x00000120   -   ivINT_DAC0                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_MCG,          /* 0x49  0x00000124   -   ivINT_MCG                      unused by PE */
     (tIsrFunc)&Cpu_ivINT_LPTMR0,       /* 0x4A  0x00000128   -   ivINT_LPTMR0                   unused by PE */
-    (tIsrFunc)&Cpu_ivINT_PORTA,        /* 0x4B  0x0000012C   -   ivINT_PORTA                    unused by PE */
+    (tIsrFunc)&ExtIntLdd1_Interrupt,   /* 0x4B  0x0000012C   8   ivINT_PORTA                    used by PE */
     (tIsrFunc)&Cpu_ivINT_PORTB,        /* 0x4C  0x00000130   -   ivINT_PORTB                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTC,        /* 0x4D  0x00000134   -   ivINT_PORTC                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTD,        /* 0x4E  0x00000138   -   ivINT_PORTD                    unused by PE */

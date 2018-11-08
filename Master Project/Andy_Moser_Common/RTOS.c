@@ -12,6 +12,8 @@
 
 void RTOS_Init(void) {
   /*! \todo Create tasks here */
+
+
 }
 
 void RTOS_Deinit(void) {

@@ -13,7 +13,7 @@
 #include "Debounce.h"
 #include "Trigger.h"
 #include "Event.h"
-#include "FRTOS1.h"
+//#include "FRTOS1.h"
 
 /*!
  * \brief Returns the state of the keys. This directly reflects the value of the port
@@ -221,7 +221,17 @@ static DBNC_FSMData KEYDBNC_FSMdata = {
 };
 
 void KEYDBNC_Process(void) {
-  /** \todo check/call DBNC_Process(&KEYDBNC_FSMdata);
+
+	if ( (KEYDBNC_FSMdata.state == DBNC_KEY_IDLE) && (KEYDBNC_GetKeys() != 0)){
+		//!!DEBOUNCE!!
+
+		KEY_DisableInterrupts();
+		DBNC_Process(&KEYDBNC_FSMdata);
+
+	}else{
+		// do not debounce
+	}
+	/** \todo check/call DBNC_Process(&KEYDBNC_FSMdata);
    * But be careful: only if we are not debouncing, and if we have a key press if we are polling.
    * And you will need to disable the keyboard interrupts too!
    */

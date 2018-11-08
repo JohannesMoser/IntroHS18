@@ -1007,9 +1007,9 @@ autoselected pull
       <Buffer_Size v="48" />
       <boolgroup name="Blocking Send" v="Enabled">
         <Wait v="WAIT1" />
-        <Timeout__ms_ v="500" />
+        <Timeout__ms_ v="20" />
         <Wait_Time__ms_ v="10" />
-        <RTOS_Wait v="yes" />
+        <RTOS_Wait v="no" />
       </boolgroup>
       <Status_Colon_Pos v="13" />
       <Help_Semicolon_Pos v="26" />

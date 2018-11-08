@@ -535,16 +535,28 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="BitIO">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="SW1" />
       <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
+        <Enabled v="N" />
         <Template v="BitIO_LDD" />
         <Properties>
           <Component_name v="BitIoLdd3" />
           <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
+          <Pull_resistor sel_value="no pull resistor">
+            
+autoselected pull
+
+            <EmptySection_DummyValue />
+          </Pull_resistor>
+          <Open_drain sel_value="The settings is irrelevant for input direction">
+            
+push-pull
+
+            <EmptySection_DummyValue />
+          </Open_drain>
           <Direction v="Input" />
           <group name="Initialization">
             <Init__direction v="Input" />
@@ -552,6 +564,8 @@ PE_DEBUGHALT();
             <Auto_initialization v="yes" />
           </group>
           <Safe_mode v="yes" />
+          <Optimization_for v="speed" />
+          <Implement_using v="EGPIO" />
         </Properties>
         <Methods>
           <Init v="generate code" />
@@ -598,25 +612,19 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="ExtInt">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="SW1" />
       <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="ExtInt_LDD">
-        <Enabled v="N" />
+        <Enabled v="Y" />
         <Template v="ExtInt_LDD" />
         <Properties>
           <Component_name v="ExtIntLdd1" />
           <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
-          <Generate_interrupt_on sel_value="rising edge">
-            
-rising or falling edge
-
-            <EmptySection_DummyValue />
-          </Generate_interrupt_on>
+          <Generate_interrupt_on v="falling edge" />
           <Interrupt v="INT_PORTA" />
           <Interrupt_priority v="medium priority" />
-          <Interrupt_preserve_registers v="yes" />
           <group name="Initialization">
             <Enabled_in_init__code v="yes" />
           </group>
@@ -1082,7 +1090,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="FRTOS1" type="FreeRTOS">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="FRTOS1" />
       <RTOS_Version v="V10.0.1" />
@@ -1098,7 +1106,7 @@ push-pull
       <configASSERT v="yes" />
       <Application_Task_Tags v="no" />
       <Thread_Local_Storage_Pointers v="0" />
-      <Use_Trace_Facility v="no" />
+      <Use_Trace_Facility v="yes" />
       <group name="Debug Helpers">
         <Enable_GDB_Debug_Helper v="no" />
         <Enable_LinkTimeOptimizer_Helper v="no" />
@@ -1107,13 +1115,15 @@ push-pull
         <Task_C_Additions v="no" />
         <Record_Stack_High_Address v="yes" />
       </group>
-      <boolgroup name="Segger System Viewer Trace" v="Disabled" />
+      <boolgroup name="Segger System Viewer Trace" v="Enabled">
+        <Segger_System_Viewer v="SYS1" />
+      </boolgroup>
       <boolgroup name="Percepio Trace" v="Disabled" />
       <boolgroup name="Generate Runtime Statistics" v="Enabled">
         <Use_Tick_Counter v="no" />
         <boolgroup name="LDD" v="Enabled">
           <inhrbean type="TimerUnit_LDD">
-            <Enabled v="N" />
+            <Enabled v="Y" />
             <Template v="RuntimeCntrLDD" />
             <Properties>
               <Component_name v="RTOSCNTRLDD1" />
@@ -1140,14 +1150,14 @@ push-pull
                 <Enabled_in_init__code v="yes" />
                 <group name="Event mask">
                   <OnCounterRestart v="Enabled" />
-                  <OnChannel0 v="Enabled" />
-                  <OnChannel1 v="Enabled" />
-                  <OnChannel2 v="Enabled" />
-                  <OnChannel3 v="Enabled" />
-                  <OnChannel4 v="Enabled" />
-                  <OnChannel5 v="Enabled" />
-                  <OnChannel6 v="Enabled" />
-                  <OnChannel7 v="Enabled" />
+                  <OnChannel0 v="Disabled" />
+                  <OnChannel1 v="Disabled" />
+                  <OnChannel2 v="Disabled" />
+                  <OnChannel3 v="Disabled" />
+                  <OnChannel4 v="Disabled" />
+                  <OnChannel5 v="Disabled" />
+                  <OnChannel6 v="Disabled" />
+                  <OnChannel7 v="Disabled" />
                 </group>
               </group>
             </Properties>
@@ -1241,7 +1251,7 @@ push-pull
       <group name="Memory">
         <boolgroup name="Dynamic Allocation" v="Enabled">
           <Application_allocated_Heap v="no" />
-          <Heap_Size v="1024" />
+          <Heap_Size v="2048" />
           <Linker_Heap_Base_Symbol v="__HeapBase" />
           <Linker_Heap_Limit_Symbol v="__HeapLimit" />
           <Linker_Heap_Size_Symbol v="__heap_size" />
@@ -1316,7 +1326,7 @@ push-pull
       <pcTaskGetTaskName v="generate code" />
       <eTaskGetState v="don&amp;apos;t generate code" />
       <xTaskGetSchedulerState v="generate code" />
-      <vTaskList v="don&amp;apos;t generate code" />
+      <vTaskList v="generate code" />
       <uxTaskGetStackHighWaterMark v="generate code" />
       <uxTaskGetNumberOfTasks v="generate code" />
       <vTaskGetRunTimeStats v="generate code" />
@@ -1419,7 +1429,7 @@ push-pull
         <Interrupt v="INT_FTM2" />
         <Interrupt_priority v="0" />
       </boolgroup>
-      <Interrupt_period v="500 ms" />
+      <Interrupt_period v="1 ms" />
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1442,7 +1452,7 @@ push-pull
               <Interrupt v="INT_FTM2" />
               <Interrupt_priority v="0" />
             </boolgroup>
-            <Interrupt_period v="500 ms" />
+            <Interrupt_period v="1 ms" />
             <group name="Initialization">
               <Enabled_in_init__code v="yes" />
               <group name="Event mask">
@@ -1527,7 +1537,7 @@ push-pull
         <group name="Channel 0">
           <enumgroup name="Mode" v="Compare">
             <Compare v="FTM2_C0V" />
-            <Offset v="500 ms" />
+            <Offset v="1 ms" />
             <enumgroup name="Output on compare" v="Disconnect">
               <EmptySection_DummyValue />
             </enumgroup>
@@ -1711,7 +1721,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="SYS1" type="SeggerSystemView">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="SYS1" />
       <Version v="V2.52a" />

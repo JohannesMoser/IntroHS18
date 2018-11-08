@@ -29,6 +29,7 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "Event.h"
+#include "Keys.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -72,6 +73,7 @@ void Cpu_OnNMIINT(void)
 void TI1_OnInterrupt(void)
 {
   /* Write your code here ... */
+	TMR_OnInterrupt();
 }
 
 /*
@@ -89,7 +91,7 @@ void TI1_OnInterrupt(void)
 void SW1_OnInterrupt(void)
 {
   /* Write your code here ... */
-	  EVNT_SetEvent(EVNT_SW1_PRESSED);
+	 KEY_OnInterrupt(KEY_BTN1);
 }
 
 /*
@@ -106,7 +108,7 @@ void SW1_OnInterrupt(void)
 */
 void SW5_OnInterrupt(void)
 {
-	EVNT_SetEvent(EVNT_SW5_PRESSED);
+	 KEY_OnInterrupt(KEY_BTN5);
 }
 
 /*
@@ -123,7 +125,7 @@ void SW5_OnInterrupt(void)
 */
 void SW4_OnInterrupt(void)
 {
-	EVNT_SetEvent(EVNT_SW4_PRESSED);
+	 KEY_OnInterrupt(KEY_BTN4);
 }
 
 /*
@@ -140,7 +142,7 @@ void SW4_OnInterrupt(void)
 */
 void SW3_OnInterrupt(void)
 {
-	EVNT_SetEvent(EVNT_SW3_PRESSED);
+	 KEY_OnInterrupt(KEY_BTN3);
 }
 
 /*
@@ -157,7 +159,7 @@ void SW3_OnInterrupt(void)
 */
 void SW2_OnInterrupt(void)
 {
-	EVNT_SetEvent(EVNT_SW2_PRESSED);
+	 KEY_OnInterrupt(KEY_BTN2);
 }
 
 /* END Events */

@@ -7,7 +7,7 @@
 **     Version     : Component 01.018, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
 **     Abstract    :
 **          This TimerInt component implements a periodic interrupt.
 **          When the component and its events are enabled, the "OnInterrupt"
@@ -23,7 +23,7 @@
 **          Interrupt service/event                        : Enabled
 **            Interrupt                                    : INT_FTM2
 **            Interrupt priority                           : 0
-**          Interrupt period                               : 500 ms
+**          Interrupt period                               : 1 ms
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
 **            Auto initialization                          : yes
@@ -95,7 +95,7 @@
 
 #include "TI1.h"
 #include "TimerIntLdd1.h"
-/* {Default RTOS Adapter} No RTOS includes */
+#include "FreeRTOS.h" /* FreeRTOS interface */
 
 #ifdef __cplusplus
 extern "C" {
@@ -111,7 +111,7 @@ typedef struct {
 
 typedef TimerIntLdd1_TDeviceData *TimerIntLdd1_TDeviceDataPtr; /* Pointer to the device data structure. */
 
-/* {Default RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
+/* {FreeRTOS RTOS Adapter} Static object used for simulation of dynamic driver memory allocation */
 static TimerIntLdd1_TDeviceData DeviceDataPrv__DEFAULT_RTOS_ALLOC;
 
 #define CHANNEL 0x00U
@@ -145,12 +145,12 @@ LDD_TDeviceData* TimerIntLdd1_Init(LDD_TUserData *UserDataPtr)
 {
   /* Allocate device structure */
   TimerIntLdd1_TDeviceData *DeviceDataPrv;
-  /* {Default RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
+  /* {FreeRTOS RTOS Adapter} Driver memory allocation: Dynamic allocation is simulated by a pointer to the static object */
   DeviceDataPrv = &DeviceDataPrv__DEFAULT_RTOS_ALLOC;
   DeviceDataPrv->UserDataPtr = UserDataPtr; /* Store the RTOS device structure */
   DeviceDataPrv->EnEvents = 0x01u;     /* Initial event mask */
   DeviceDataPrv->EnUser = TRUE;        /* Set the flag "device enabled" */
-  DeviceDataPrv->CmpVal = 0x3D09U;     /* Initial value periodically addded to compare register */
+  DeviceDataPrv->CmpVal = 0xEA60U;     /* Initial value periodically addded to compare register */
   /* Registration of the device structure */
   PE_LDD_RegisterDeviceStructure(PE_LDD_COMPONENT_TimerIntLdd1_ID,DeviceDataPrv);
   DeviceDataPrv->LinkedDeviceDataPtr = TU1_Init((LDD_TUserData *)NULL);
@@ -158,7 +158,7 @@ LDD_TDeviceData* TimerIntLdd1_Init(LDD_TUserData *UserDataPtr)
     /* Unregistration of the device structure */
     PE_LDD_UnregisterDeviceStructure(PE_LDD_COMPONENT_TimerIntLdd1_ID);
     /* Deallocation of the device structure */
-    /* {Default RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
+    /* {FreeRTOS RTOS Adapter} Driver memory deallocation: Dynamic allocation is simulated, no deallocation code is generated */
     return NULL;                       /* If so, then the TimerInt initialization is also unsuccessful */
   }
   (void)TU1_SetEventMask(DeviceDataPrv->LinkedDeviceDataPtr, TU1_GetEventMask(DeviceDataPrv->LinkedDeviceDataPtr) | LDD_TIMERUNIT_ON_CHANNEL_0); /* Enable TimerUnit event */

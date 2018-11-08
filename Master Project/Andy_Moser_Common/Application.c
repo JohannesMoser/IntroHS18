@@ -81,6 +81,9 @@ void APP_EventHandler(EVNT_Handle event) {
 	/*! \todo handle events */
 	switch (event) {
 	case EVNT_STARTUP: {
+		#if PL_CONFIG_HAS_BUZZER
+			//BUZ_PlayTune(BUZ_TUNE_BUTTON);
+		#endif
 		int i;
 		for (i = 0; i < 5; i++) {
 			LED1_Neg();
@@ -90,49 +93,88 @@ void APP_EventHandler(EVNT_Handle event) {
 	}
 
 		break;
+
 	case EVNT_LED_HEARTBEAT:
 		LED2_Neg();
-		break;
-#if PL_CONFIG_NOF_KEYS>=1
+	break;
+
+	#if PL_CONFIG_NOF_KEYS>=1
 	case EVNT_SW1_PRESSED:
-		LED1_Neg();
-		//BtnMsg(1, "pressed");
+		BtnMsg(1, "pressed");
+		break;
+	case EVNT_SW1_LPRESSED:
+		BtnMsg(1, "long pressed");
+		break;
+	case EVNT_SW1_RELEASED:
+		BtnMsg(1, "released");
 		break;
 #endif
+
 #if PL_CONFIG_NOF_KEYS>=2
 	case EVNT_SW2_PRESSED:
-		LED1_Neg();
-		//BtnMsg(2, "pressed");
+		BtnMsg(2, "pressed");
+		break;
+	case EVNT_SW2_LPRESSED:
+		BtnMsg(2, "long pressed");
+		break;
+	case EVNT_SW2_RELEASED:
+		BtnMsg(2, "released");
 		break;
 #endif
+
 #if PL_CONFIG_NOF_KEYS>=3
 	case EVNT_SW3_PRESSED:
-		LED1_Neg();
-		//BtnMsg(3, "pressed");
+		BtnMsg(3, "pressed");
+		break;
+	case EVNT_SW3_LPRESSED:
+		BtnMsg(3, "long pressed");
+		break;
+	case EVNT_SW3_RELEASED:
+		BtnMsg(3, "released");
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=4
 	case EVNT_SW4_PRESSED:
-		LED1_Neg();
-		//BtnMsg(4, "pressed");
+		BtnMsg(4, "pressed");
+		break;
+	case EVNT_SW4_LPRESSED:
+		BtnMsg(4, "long pressed");
+		break;
+	case EVNT_SW4_RELEASED:
+		BtnMsg(4, "released");
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=5
 	case EVNT_SW5_PRESSED:
-		LED1_Neg();
-		//BtnMsg(, "pressed");
+		BtnMsg(5, "pressed");
+		break;
+	case EVNT_SW5_LPRESSED:
+		BtnMsg(5, "long pressed");
+		break;
+	case EVNT_SW5_RELEASED:
+		BtnMsg(5, "released");
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=6
 	case EVNT_SW6_PRESSED:
-		LED1_Neg();
-		//BtnMsg(6, "pressed");
+		BtnMsg(6, "pressed");
+		break;
+	case EVNT_SW6_LPRESSED:
+		BtnMsg(6, "long pressed");
+		break;
+	case EVNT_SW6_RELEASED:
+		BtnMsg(6, "released");
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=7
 	case EVNT_SW7_PRESSED:
-		LED1_Neg();
-		//BtnMsg(7, "pressed");
+		BtnMsg(7, "pressed");
+		break;
+	case EVNT_SW7_LPRESSED:
+		BtnMsg(7, "long pressed");
+		break;
+	case EVNT_SW7_RELEASED:
+		BtnMsg(7, "released");
 		break;
 #endif
 	default:
@@ -218,6 +260,14 @@ static void APP_AdoptToHardware(void) {
 #endif
 }
 
+static void BlinkyTask(void *pvParameters){
+ TickType_t xLastWakeTime = xTaskGetTickCount( ) ;
+ for (;;) {
+ LED1_Neg() ;
+ vTaskDelayUntil(&xLastWakeTime , pdMS_TO_TICKS(500) ) ;
+ }
+ }
+
 void APP_Start(void) {
 	PL_Init();
 	APP_AdoptToHardware();
@@ -225,17 +275,30 @@ void APP_Start(void) {
 	bool clear = TRUE;
 	EVNT_SetEvent(EVNT_STARTUP);
 
-	__asm volatile("cpsie i");
+	//__asm volatile("cpsie i");
 	/* enable interrupts */
-	KEY_Init();
+	EVNT_HandleEvent(APP_EventHandler, clear);
+
+	BaseType_t res;
+	xTaskHandle taskHndl;
+	res = xTaskCreate (BlinkyTask,"BlinkyTask" , configMINIMAL_STACK_SIZE,
+			NULL,tskIDLE_PRIORITY, &taskHndl );
+
+	if(res != pdPASS){
+		//something went wrong
+		WAIT1_Waitms(10);
+	}
+
+	vTaskStartScheduler();
 
 	for (;;) {
-		KEY_Scan();
-		EVNT_HandleEvent(APP_EventHandler, clear);
+
+		//EVNT_HandleEvent(APP_EventHandler, clear);
 
 
-		WAIT1_Waitms(100);
+		WAIT1_Waitms(10);
 	}
 
 }
+
 

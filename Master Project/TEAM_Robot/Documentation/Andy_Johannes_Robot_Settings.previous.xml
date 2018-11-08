@@ -535,16 +535,28 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="BitIO">
-    <Enabled v="Y" />
+    <Enabled v="N" />
     <Properties>
       <Component_name v="SW1" />
       <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="BitIO_LDD">
-        <Enabled v="Y" />
+        <Enabled v="N" />
         <Template v="BitIO_LDD" />
         <Properties>
           <Component_name v="BitIoLdd3" />
           <Pin_for_I_O v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
+          <Pull_resistor sel_value="no pull resistor">
+            
+autoselected pull
+
+            <EmptySection_DummyValue />
+          </Pull_resistor>
+          <Open_drain sel_value="The settings is irrelevant for input direction">
+            
+push-pull
+
+            <EmptySection_DummyValue />
+          </Open_drain>
           <Direction v="Input" />
           <group name="Initialization">
             <Init__direction v="Input" />
@@ -552,6 +564,8 @@ PE_DEBUGHALT();
             <Auto_initialization v="yes" />
           </group>
           <Safe_mode v="yes" />
+          <Optimization_for v="speed" />
+          <Implement_using v="EGPIO" />
         </Properties>
         <Methods>
           <Init v="generate code" />
@@ -598,25 +612,19 @@ PE_DEBUGHALT();
     </Events>
   </Bean>
   <Bean name="SW1" type="ExtInt">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="SW1" />
       <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
       <inhrbean type="ExtInt_LDD">
-        <Enabled v="N" />
+        <Enabled v="Y" />
         <Template v="ExtInt_LDD" />
         <Properties>
           <Component_name v="ExtIntLdd1" />
           <Pin v="PTA14/SPI0_PCS0/UART0_TX/I2C2_SCL/I2S0_RX_BCLK/I2S0_TXD1" />
-          <Generate_interrupt_on sel_value="rising edge">
-            
-rising or falling edge
-
-            <EmptySection_DummyValue />
-          </Generate_interrupt_on>
+          <Generate_interrupt_on v="falling edge" />
           <Interrupt v="INT_PORTA" />
           <Interrupt_priority v="medium priority" />
-          <Interrupt_preserve_registers v="yes" />
           <group name="Initialization">
             <Enabled_in_init__code v="yes" />
           </group>
@@ -1082,7 +1090,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="FRTOS1" type="FreeRTOS">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="FRTOS1" />
       <RTOS_Version v="V10.0.1" />
@@ -1098,7 +1106,7 @@ push-pull
       <configASSERT v="yes" />
       <Application_Task_Tags v="no" />
       <Thread_Local_Storage_Pointers v="0" />
-      <Use_Trace_Facility v="no" />
+      <Use_Trace_Facility v="yes" />
       <group name="Debug Helpers">
         <Enable_GDB_Debug_Helper v="no" />
         <Enable_LinkTimeOptimizer_Helper v="no" />
@@ -1113,7 +1121,7 @@ push-pull
         <Use_Tick_Counter v="no" />
         <boolgroup name="LDD" v="Enabled">
           <inhrbean type="TimerUnit_LDD">
-            <Enabled v="N" />
+            <Enabled v="Y" />
             <Template v="RuntimeCntrLDD" />
             <Properties>
               <Component_name v="RTOSCNTRLDD1" />
@@ -1140,14 +1148,14 @@ push-pull
                 <Enabled_in_init__code v="yes" />
                 <group name="Event mask">
                   <OnCounterRestart v="Enabled" />
-                  <OnChannel0 v="Enabled" />
-                  <OnChannel1 v="Enabled" />
-                  <OnChannel2 v="Enabled" />
-                  <OnChannel3 v="Enabled" />
-                  <OnChannel4 v="Enabled" />
-                  <OnChannel5 v="Enabled" />
-                  <OnChannel6 v="Enabled" />
-                  <OnChannel7 v="Enabled" />
+                  <OnChannel0 v="Disabled" />
+                  <OnChannel1 v="Disabled" />
+                  <OnChannel2 v="Disabled" />
+                  <OnChannel3 v="Disabled" />
+                  <OnChannel4 v="Disabled" />
+                  <OnChannel5 v="Disabled" />
+                  <OnChannel6 v="Disabled" />
+                  <OnChannel7 v="Disabled" />
                 </group>
               </group>
             </Properties>
@@ -1241,7 +1249,7 @@ push-pull
       <group name="Memory">
         <boolgroup name="Dynamic Allocation" v="Enabled">
           <Application_allocated_Heap v="no" />
-          <Heap_Size v="1024" />
+          <Heap_Size v="2048" />
           <Linker_Heap_Base_Symbol v="__HeapBase" />
           <Linker_Heap_Limit_Symbol v="__HeapLimit" />
           <Linker_Heap_Size_Symbol v="__heap_size" />
@@ -1316,7 +1324,7 @@ push-pull
       <pcTaskGetTaskName v="generate code" />
       <eTaskGetState v="don&amp;apos;t generate code" />
       <xTaskGetSchedulerState v="generate code" />
-      <vTaskList v="don&amp;apos;t generate code" />
+      <vTaskList v="generate code" />
       <uxTaskGetStackHighWaterMark v="generate code" />
       <uxTaskGetNumberOfTasks v="generate code" />
       <vTaskGetRunTimeStats v="generate code" />
@@ -1410,16 +1418,16 @@ push-pull
     </Events>
   </Bean>
   <Bean name="TI1" type="TimerInt">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="TI1" />
-      <Periodic_interrupt_source v="FTM1_C0V" />
-      <Counter v="FTM1_CNT" />
+      <Periodic_interrupt_source v="FTM2_C0V" />
+      <Counter v="FTM2_CNT" />
       <boolgroup name="Interrupt service/event" v="Enabled">
-        <Interrupt v="INT_FTM1" />
-        <Interrupt_priority v="medium priority" />
+        <Interrupt v="INT_FTM2" />
+        <Interrupt_priority v="0" />
       </boolgroup>
-      <Interrupt_period v="200 ms" />
+      <Interrupt_period v="1 ms" />
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1433,17 +1441,16 @@ push-pull
       </group>
       <group name="Referenced components">
         <inhrbean type="TimerInt_LDD">
-          <Enabled v="N" />
+          <Enabled v="Y" />
           <Properties>
             <Component_name v="TimerIntLdd1" />
-            <Periodic_interrupt_source v="" />
-            <Counter v="FTM1_CNT" />
+            <Periodic_interrupt_source v="FTM2_C0V" />
+            <Counter v="FTM2_CNT" />
             <boolgroup name="Interrupt service/event" v="Enabled">
-              <Interrupt v="INT_FTM1" />
-              <Interrupt_priority v="medium priority" />
-              <Interrupt_preserve_registers v="yes" />
+              <Interrupt v="INT_FTM2" />
+              <Interrupt_priority v="0" />
             </boolgroup>
-            <Interrupt_period v="200 ms" />
+            <Interrupt_period v="1 ms" />
             <group name="Initialization">
               <Enabled_in_init__code v="yes" />
               <group name="Event mask">
@@ -1509,14 +1516,14 @@ push-pull
     </Events>
   </Bean>
   <Bean name="TU1" type="TimerUnit_LDD">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="TU1" />
-      <Module_name v="FTM1" />
-      <Counter v="FTM1_CNT" />
+      <Module_name v="FTM2" />
+      <Counter v="FTM2_CNT" />
       <Counter_direction v="Up" />
       <Counter_width v="16 bits" />
-      <Value_type v="Optimal" />
+      <Value_type v="uint16_t" />
       <enumgroup name="Input clock source" v="Internal">
         <Counter_frequency v="Auto select" />
       </enumgroup>
@@ -1527,27 +1534,30 @@ push-pull
       <list name="Channel list" v="1">
         <group name="Channel 0">
           <enumgroup name="Mode" v="Compare">
-            <Compare v="FTM1_C0V" />
-            <Offset v="200 ms" />
+            <Compare v="FTM2_C0V" />
+            <Offset v="1 ms" />
             <enumgroup name="Output on compare" v="Disconnect">
               <EmptySection_DummyValue />
             </enumgroup>
-            <boolgroup name="Interrupt" v="Disabled" />
+            <boolgroup name="Interrupt" v="Enabled">
+              <Interrupt v="INT_FTM2" />
+              <Interrupt_priority v="0" />
+            </boolgroup>
           </enumgroup>
         </group>
       </list>
       <group name="Initialization">
         <Enabled_in_init__code v="yes" />
         <group name="Event mask">
-          <OnCounterRestart v="Enabled" />
+          <OnCounterRestart v="Disabled" />
           <OnChannel0 v="Enabled" />
-          <OnChannel1 v="Enabled" />
-          <OnChannel2 v="Enabled" />
-          <OnChannel3 v="Enabled" />
-          <OnChannel4 v="Enabled" />
-          <OnChannel5 v="Enabled" />
-          <OnChannel6 v="Enabled" />
-          <OnChannel7 v="Enabled" />
+          <OnChannel1 v="Disabled" />
+          <OnChannel2 v="Disabled" />
+          <OnChannel3 v="Disabled" />
+          <OnChannel4 v="Disabled" />
+          <OnChannel5 v="Disabled" />
+          <OnChannel6 v="Disabled" />
+          <OnChannel7 v="Disabled" />
         </group>
       </group>
     </Properties>
@@ -1556,8 +1566,8 @@ push-pull
       <Deinit v="don&amp;apos;t generate code" />
       <Enable v="don&amp;apos;t generate code" />
       <Disable v="don&amp;apos;t generate code" />
-      <SetEventMask v="don&amp;apos;t generate code" />
-      <GetEventMask v="don&amp;apos;t generate code" />
+      <SetEventMask v="generate code" />
+      <GetEventMask v="generate code" />
       <GetEventStatus v="don&amp;apos;t generate code" />
       <SelectInputFrequency v="don&amp;apos;t generate code" />
       <GetInputFrequencyReal v="don&amp;apos;t generate code" />
@@ -1565,9 +1575,9 @@ push-pull
       <SetPeriodTicks v="don&amp;apos;t generate code" />
       <GetPeriodTicks v="don&amp;apos;t generate code" />
       <ResetCounter v="don&amp;apos;t generate code" />
-      <GetCounterValue v="don&amp;apos;t generate code" />
-      <SetOffsetTicks v="don&amp;apos;t generate code" />
-      <GetOffsetTicks v="don&amp;apos;t generate code" />
+      <GetCounterValue v="generate code" />
+      <SetOffsetTicks v="generate code" />
+      <GetOffsetTicks v="generate code" />
       <GetCaptureValue v="don&amp;apos;t generate code" />
       <SelectOutputAction v="don&amp;apos;t generate code" />
       <SelectCaptureEdge v="don&amp;apos;t generate code" />
@@ -1578,7 +1588,9 @@ push-pull
     <Events>
       <Event_module_name v="Events" />
       <event name="OnCounterRestart" v="don&amp;apos;t generate code" />
-      <event name="OnChannel0" v="don&amp;apos;t generate code" />
+      <event name="OnChannel0" v="generate code">
+        <Event_procedure_name v="TU1_OnChannel0" />
+      </event>
       <event name="OnChannel1" v="don&amp;apos;t generate code" />
       <event name="OnChannel2" v="don&amp;apos;t generate code" />
       <event name="OnChannel3" v="don&amp;apos;t generate code" />
@@ -1859,17 +1871,13 @@ push-pull
       <Counter v="FTM1_CNT" />
       <Counter_direction v="Up" />
       <Counter_width v="16 bits" />
-      <Value_type v="uint16_t" />
+      <Value_type v="Optimal" />
       <enumgroup name="Input clock source" v="Internal">
         <Counter_frequency v="1.875 MHz" />
       </enumgroup>
-      <enumgroup name="Counter restart" v="On-match">
-        <Period_device v="FTM1_MOD" />
-        <Period v="20 ms" />
-        <boolgroup name="Interrupt" v="Enabled">
-          <Interrupt v="INT_FTM1" />
-          <Interrupt_priority v="0" />
-        </boolgroup>
+      <enumgroup name="Counter restart" v="On-overrun">
+        <Overrun_period v="34.952533 ms" />
+        <boolgroup name="Interrupt" v="Disabled" />
       </enumgroup>
       <list name="Channel list" v="0">
         <EmptySection_DummyValue />
@@ -1877,7 +1885,7 @@ push-pull
       <group name="Initialization">
         <Enabled_in_init__code v="yes" />
         <group name="Event mask">
-          <OnCounterRestart v="Enabled" />
+          <OnCounterRestart v="Disabled" />
           <OnChannel0 v="Disabled" />
           <OnChannel1 v="Disabled" />
           <OnChannel2 v="Disabled" />
@@ -1891,7 +1899,7 @@ push-pull
     </Properties>
     <Methods>
       <Init v="generate code" />
-      <Deinit v="don&amp;apos;t generate code" />
+      <Deinit v="generate code" />
       <Enable v="don&amp;apos;t generate code" />
       <Disable v="don&amp;apos;t generate code" />
       <SetEventMask v="don&amp;apos;t generate code" />
@@ -1902,7 +1910,7 @@ push-pull
       <GetInputFrequency v="don&amp;apos;t generate code" />
       <SetPeriodTicks v="don&amp;apos;t generate code" />
       <GetPeriodTicks v="don&amp;apos;t generate code" />
-      <ResetCounter v="don&amp;apos;t generate code" />
+      <ResetCounter v="generate code" />
       <GetCounterValue v="generate code" />
       <SetOffsetTicks v="don&amp;apos;t generate code" />
       <GetOffsetTicks v="don&amp;apos;t generate code" />
@@ -1915,9 +1923,7 @@ push-pull
     </Methods>
     <Events>
       <Event_module_name v="Events" />
-      <event name="OnCounterRestart" v="generate code">
-        <Event_procedure_name v="RefCnt_OnCounterRestart" />
-      </event>
+      <event name="OnCounterRestart" v="don&amp;apos;t generate code" />
       <event name="OnChannel0" v="don&amp;apos;t generate code" />
       <event name="OnChannel1" v="don&amp;apos;t generate code" />
       <event name="OnChannel2" v="don&amp;apos;t generate code" />
@@ -4974,104 +4980,6 @@ autoselected pull
         <Event_procedure_name v="GI2C1_OnReleaseBus" />
       </event>
       <event name="OnError" v="don&amp;apos;t generate code" />
-    </Events>
-  </Bean>
-  <Bean name="TI2" type="TimerInt">
-    <Enabled v="Y" />
-    <Properties>
-      <Component_name v="TI2" />
-      <Periodic_interrupt_source v="FTM1_MOD" />
-      <Counter v="FTM1_CNT" />
-      <boolgroup name="Interrupt service/event" v="Enabled">
-        <Interrupt v="INT_FTM1" />
-        <Interrupt_priority v="0" />
-      </boolgroup>
-      <Interrupt_period v="20 ms" />
-      <Same_period_in_modes v="yes" />
-      <Component_uses_entire_timer v="no" />
-      <group name="Initialization">
-        <Enabled_in_init__code v="yes" />
-        <Events_enabled_in_init_ v="yes" />
-      </group>
-      <group name="CPU clock/speed selection">
-        <High_speed_mode v="This component enabled" />
-        <Low_speed_mode v="This component disabled" />
-        <Slow_speed_mode v="This component disabled" />
-      </group>
-      <group name="Referenced components">
-        <inhrbean type="TimerInt_LDD">
-          <Enabled v="Y" />
-          <Properties>
-            <Component_name v="TimerIntLdd3" />
-            <Periodic_interrupt_source v="FTM1_MOD" />
-            <Counter v="FTM1_CNT" />
-            <boolgroup name="Interrupt service/event" v="Enabled">
-              <Interrupt v="INT_FTM1" />
-              <Interrupt_priority v="0" />
-            </boolgroup>
-            <Interrupt_period v="20 ms" />
-            <group name="Initialization">
-              <Enabled_in_init__code v="yes" />
-              <group name="Event mask">
-                <OnInterrupt v="Enabled" />
-              </group>
-            </group>
-            <group name="Referenced components">
-              <Linked_TimerUnit v="RefCnt" />
-            </group>
-          </Properties>
-          <Methods>
-            <Init v="generate code" />
-            <Deinit v="don&amp;apos;t generate code" />
-            <Enable v="don&amp;apos;t generate code" />
-            <Disable v="don&amp;apos;t generate code" />
-            <SetEventMask v="don&amp;apos;t generate code" />
-            <GetEventMask v="don&amp;apos;t generate code" />
-            <GetEventStatus v="don&amp;apos;t generate code" />
-            <SelectPeriod v="don&amp;apos;t generate code" />
-            <SetPeriodUS v="don&amp;apos;t generate code" />
-            <SetPeriodMS v="don&amp;apos;t generate code" />
-            <SetPeriodSec v="don&amp;apos;t generate code" />
-            <SetPeriodReal v="don&amp;apos;t generate code" />
-            <SetFrequencyHz v="don&amp;apos;t generate code" />
-            <SetFrequencykHz v="don&amp;apos;t generate code" />
-            <SetFrequencyMHz v="don&amp;apos;t generate code" />
-            <SetOperationMode v="don&amp;apos;t generate code" />
-            <GetDriverState v="don&amp;apos;t generate code" />
-          </Methods>
-          <Events>
-            <Event_module_name v="Events" />
-            <event name="OnInterrupt" v="generate code">
-              <Event_procedure_name v="TimerIntLdd3_OnInterrupt" />
-            </event>
-          </Events>
-        </inhrbean>
-      </group>
-    </Properties>
-    <Methods>
-      <Enable v="don&amp;apos;t generate code" />
-      <Disable v="don&amp;apos;t generate code" />
-      <EnableEvent v="don&amp;apos;t generate code" />
-      <DisableEvent v="don&amp;apos;t generate code" />
-      <SetPeriodMode v="don&amp;apos;t generate code" />
-      <SetPeriodTicks16 v="don&amp;apos;t generate code" />
-      <SetPeriodTicks32 v="don&amp;apos;t generate code" />
-      <SetPeriodUS v="don&amp;apos;t generate code" />
-      <SetPeriodMS v="don&amp;apos;t generate code" />
-      <SetPeriodSec v="don&amp;apos;t generate code" />
-      <SetPeriodReal v="don&amp;apos;t generate code" />
-      <SetFreqHz v="don&amp;apos;t generate code" />
-      <SetFreqkHz v="don&amp;apos;t generate code" />
-      <SetFreqMHz v="don&amp;apos;t generate code" />
-    </Methods>
-    <Events>
-      <Event_module_name v="Events" />
-      <event name="BeforeNewSpeed" v="don&amp;apos;t generate code" />
-      <event name="AfterNewSpeed" v="don&amp;apos;t generate code" />
-      <event name="OnInterrupt" v="generate code">
-        <Event_procedure_name v="TI2_OnInterrupt" />
-        <Priority v="same as interrupt" />
-      </event>
     </Events>
   </Bean>
 </PE_PROJECT_SETTINGS_DOCUMENTATION>
