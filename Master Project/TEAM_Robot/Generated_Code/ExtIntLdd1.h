@@ -7,7 +7,11 @@
 **     Version     : Component 02.156, Driver 01.02, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
+<<<<<<< HEAD
 **     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
+=======
+**     Date/Time   : 2018-10-18, 15:16, # CodeGen: 6
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 **     Abstract    :
 **         This component, "ExtInt_LDD", provide a low level API 
 **         for unified access of external interrupts handling
@@ -179,7 +183,11 @@ void ExtIntLdd1_Disable(LDD_TDeviceData *DeviceDataPtr);
 **         This method is internal. It is used by Processor Expert only.
 ** ===================================================================
 */
+<<<<<<< HEAD
 /* {FreeRTOS RTOS Adapter} ISR function prototype */
+=======
+/* {Default RTOS Adapter} ISR function prototype */
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 PE_ISR(ExtIntLdd1_Interrupt);
 
 /*

@@ -7,7 +7,11 @@
 **     Version     : Component 02.105, Driver 01.00, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
+<<<<<<< HEAD
 **     Date/Time   : 2018-10-18, 16:22, # CodeGen: 7
+=======
+**     Date/Time   : 2018-10-18, 15:16, # CodeGen: 6
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 **     Abstract    :
 **         This component "ExtInt" implements an external 
 **         interrupt, its control methods and interrupt/event 

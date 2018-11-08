@@ -8,7 +8,11 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
+<<<<<<< HEAD
 **     Date/Time   : 2018-11-08, 15:13, # CodeGen: 15
+=======
+**     Date/Time   : 2018-10-18, 15:16, # CodeGen: 6
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 **     Abstract    :
 **
 **     Settings    :
@@ -324,8 +328,11 @@
 #include "BitIoLdd2.h"
 #include "SW1.h"
 #include "ExtIntLdd1.h"
+<<<<<<< HEAD
 #include "FRTOS1.h"
 #include "RTOSCNTRLDD1.h"
+=======
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 #include "TI1.h"
 #include "TimerIntLdd1.h"
 #include "TU1.h"
@@ -1934,11 +1941,14 @@ void PE_low_level_init(void)
   (void)BitIoLdd2_Init(NULL);
   /* ### ExtInt_LDD "ExtIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)ExtIntLdd1_Init(NULL);
+<<<<<<< HEAD
   RTT1_Init(); /* ### SeggerRTT "RTT1" init code ... */
   SYS1_Init(); /* ### SeggerSystemView "SYS1" init code ... */
   /* PEX_RTOS_INIT() is a macro should already have been called either from main()
      or Processor Expert startup code. So we don't call it here again. */
   /* PEX_RTOS_INIT(); */ /* ### FreeRTOS "FRTOS1" init code ... */
+=======
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
   /* ### TimerInt_LDD "TimerIntLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)TimerIntLdd1_Init(NULL);
   /* ### TimerInt "TI1" init code ... */

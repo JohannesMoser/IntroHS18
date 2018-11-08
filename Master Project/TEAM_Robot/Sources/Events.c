@@ -37,6 +37,7 @@ extern "C" {
 
 /* User includes (#include below this line is not maintained by Processor Expert) */
 #include "Event.h"
+#include "Keys.h"
 /*
 ** ===================================================================
 **     Event       :  Cpu_OnNMIINT (module Events)
@@ -110,7 +111,12 @@ void TI2_OnInterrupt(void)
 */
 void TI1_OnInterrupt(void)
 {
+<<<<<<< HEAD
 	TMR_OnInterrupt();
+=======
+	//EVNT_SetEvent(EVNT_LED_HEARTBEAT);
+	TRG_AddTick();
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 }
 
 /*
@@ -128,6 +134,7 @@ void TI1_OnInterrupt(void)
 void SW1_OnInterrupt(void)
 {
   KEY_OnInterrupt(KEY_BTN1);
+<<<<<<< HEAD
 }
 
 /*
@@ -217,6 +224,8 @@ void FRTOS1_vApplicationMallocFailedHook(void)
   taskDISABLE_INTERRUPTS();
   /* Write your code here ... */
   for(;;) {}
+=======
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 }
 
 /* END Events */

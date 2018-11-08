@@ -141,7 +141,7 @@ PE_DEBUGHALT();
         <Wait v="WAIT1" />
         <Timeout__ms_ v="50" />
         <Wait_Time__ms_ v="2" />
-        <RTOS_Wait v="yes" />
+        <RTOS_Wait v="no" />
       </boolgroup>
       <Status_Colon_Pos v="13" />
       <Help_Semicolon_Pos v="26" />

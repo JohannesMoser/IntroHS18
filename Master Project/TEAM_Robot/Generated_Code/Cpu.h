@@ -8,7 +8,11 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
+<<<<<<< HEAD
 **     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
+=======
+**     Date/Time   : 2018-10-18, 15:16, # CodeGen: 6
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 **     Abstract    :
 **
 **     Settings    :

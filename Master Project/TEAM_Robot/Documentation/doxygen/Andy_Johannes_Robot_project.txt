@@ -30,7 +30,10 @@
 - \subpage BitIoLdd1
 - \subpage BitIoLdd2
 - \subpage ExtIntLdd1
+<<<<<<< HEAD
 - \subpage RTOSCNTRLDD1
+=======
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 - \subpage TU1
 - \subpage TimerIntLdd1
 - \subpage BitIoLdd4

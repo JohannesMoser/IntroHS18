@@ -141,7 +141,7 @@ PE_DEBUGHALT();
         <Wait v="WAIT1" />
         <Timeout__ms_ v="50" />
         <Wait_Time__ms_ v="2" />
-        <RTOS_Wait v="yes" />
+        <RTOS_Wait v="no" />
       </boolgroup>
       <Status_Colon_Pos v="13" />
       <Help_Semicolon_Pos v="26" />
@@ -1427,7 +1427,11 @@ push-pull
         <Interrupt v="INT_FTM2" />
         <Interrupt_priority v="0" />
       </boolgroup>
+<<<<<<< HEAD
       <Interrupt_period v="1 ms" />
+=======
+      <Interrupt_period v="500 ms" />
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
       <Same_period_in_modes v="yes" />
       <Component_uses_entire_timer v="no" />
       <group name="Initialization">
@@ -1450,7 +1454,11 @@ push-pull
               <Interrupt v="INT_FTM2" />
               <Interrupt_priority v="0" />
             </boolgroup>
+<<<<<<< HEAD
             <Interrupt_period v="1 ms" />
+=======
+            <Interrupt_period v="500 ms" />
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
             <group name="Initialization">
               <Enabled_in_init__code v="yes" />
               <group name="Event mask">
@@ -1535,7 +1543,11 @@ push-pull
         <group name="Channel 0">
           <enumgroup name="Mode" v="Compare">
             <Compare v="FTM2_C0V" />
+<<<<<<< HEAD
             <Offset v="1 ms" />
+=======
+            <Offset v="500 ms" />
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
             <enumgroup name="Output on compare" v="Disconnect">
               <EmptySection_DummyValue />
             </enumgroup>

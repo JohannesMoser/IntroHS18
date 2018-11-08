@@ -213,6 +213,7 @@ Module "SW1"       (component ExtInt)
    - SW1_Disable -Disable the component - the external events are not accepted. This method is available only if HW module 
                 allows enable/disable of the interrupt.
    - SW1_GetVal -Returns the actual value of the input pin of the component.
+<<<<<<< HEAD
 
 Module "FRTOS1"    (component FreeRTOS)
    - FRTOS1_xTaskCreate -Create a new task and add it to the list of tasks that are ready to run.
@@ -719,6 +720,8 @@ Module "FRTOS1"    (component FreeRTOS)
    - FRTOS1_Deinit -Module deinitialization method
    - FRTOS1_Init -Low level initialization routine called from startup code. This method ensures that the tick timer is  not 
                 enabled.
+=======
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 
 Module "TI1"       (component TimerInt)
 

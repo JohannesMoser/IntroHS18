@@ -100,6 +100,7 @@ void APP_EventHandler(EVNT_Handle event) {
 
 	#if PL_CONFIG_NOF_KEYS>=1
 	case EVNT_SW1_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(1, "pressed");
 		break;
 	case EVNT_SW1_LPRESSED:
@@ -107,11 +108,28 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW1_RELEASED:
 		BtnMsg(1, "released");
+=======
+		//LED1_Neg();
+		//BtnMsg(1, "pressed");
+
+		if(BUZ_Beep(800,100)==ERR_OK){
+
+			LED1_Neg();
+		}
+
+		else{
+
+			LED2_Neg();
+		}
+
+
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 
 #if PL_CONFIG_NOF_KEYS>=2
 	case EVNT_SW2_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(2, "pressed");
 		break;
 	case EVNT_SW2_LPRESSED:
@@ -119,11 +137,16 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW2_RELEASED:
 		BtnMsg(2, "released");
+=======
+		LED1_Neg();
+		BtnMsg(2, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 
 #if PL_CONFIG_NOF_KEYS>=3
 	case EVNT_SW3_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(3, "pressed");
 		break;
 	case EVNT_SW3_LPRESSED:
@@ -131,10 +154,15 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW3_RELEASED:
 		BtnMsg(3, "released");
+=======
+		LED1_Neg();
+		BtnMsg(3, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=4
 	case EVNT_SW4_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(4, "pressed");
 		break;
 	case EVNT_SW4_LPRESSED:
@@ -142,10 +170,15 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW4_RELEASED:
 		BtnMsg(4, "released");
+=======
+		LED1_Neg();
+		BtnMsg(4, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=5
 	case EVNT_SW5_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(5, "pressed");
 		break;
 	case EVNT_SW5_LPRESSED:
@@ -153,10 +186,15 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW5_RELEASED:
 		BtnMsg(5, "released");
+=======
+		LED1_Neg();
+		BtnMsg(5, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=6
 	case EVNT_SW6_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(6, "pressed");
 		break;
 	case EVNT_SW6_LPRESSED:
@@ -164,10 +202,15 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW6_RELEASED:
 		BtnMsg(6, "released");
+=======
+		LED1_Neg();
+		BtnMsg(6, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 #if PL_CONFIG_NOF_KEYS>=7
 	case EVNT_SW7_PRESSED:
+<<<<<<< HEAD
 		BtnMsg(7, "pressed");
 		break;
 	case EVNT_SW7_LPRESSED:
@@ -175,6 +218,10 @@ void APP_EventHandler(EVNT_Handle event) {
 		break;
 	case EVNT_SW7_RELEASED:
 		BtnMsg(7, "released");
+=======
+		LED1_Neg();
+		BtnMsg(7, "pressed");
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 		break;
 #endif
 	default:
@@ -277,6 +324,7 @@ void APP_Start(void) {
 
 	//__asm volatile("cpsie i");
 	/* enable interrupts */
+<<<<<<< HEAD
 	EVNT_HandleEvent(APP_EventHandler, clear);
 
 	BaseType_t res;
@@ -297,7 +345,27 @@ void APP_Start(void) {
 
 
 		WAIT1_Waitms(10);
+=======
+	//KEY_Init();
+
+
+
+
+
+
+
+
+	for(;;){
+
+
+		EVNT_HandleEvent( APP_EventHandler,clear);
+
+
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 	}
+
+
+
 
 }
 

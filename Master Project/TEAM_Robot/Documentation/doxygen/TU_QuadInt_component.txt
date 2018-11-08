@@ -47,6 +47,12 @@ by the component.
 <tr><td>0xE000E431</td><td>NVICIP49</td>
 <td class="regNotResetVal">0x000000F0</td>
  <td>NVICIP49 register, peripheral TU_QuadInt.</td></tr>
+<<<<<<< HEAD
+=======
+<tr><td>0xE000E104</td><td>NVICISER1</td>
+<td class="regNotResetVal">0x08021000</td>
+ <td>NVICISER1 register, peripheral TU_QuadInt.</td></tr>
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 </table>
 Color Denotes Reset Value
 <br/>
@@ -383,7 +389,11 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0xE000E104</td></tr>
+<<<<<<< HEAD
 <tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x08031000</td></tr>
+=======
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x08021000</td></tr>
+>>>>>>> 0dbae26c797a6984e3df0b54283e7146fc1a1a20
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x00000000</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>0 - 31</td><td>SETENA</td><td>0x00</td><td>Interrupt set enable bits</td>
