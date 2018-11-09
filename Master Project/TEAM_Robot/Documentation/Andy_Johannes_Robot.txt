@@ -713,6 +713,7 @@ Module "FRTOS1"    (component FreeRTOS)
                 vTaskGetInfo() populates a TaskStatus_t structures for just a single task. The TaskStatus_t structure contains, 
                 among other things, members for the task handle, task name, task priority, task state, and total amount of run 
                 time consumed by the task.
+   - FRTOS1_ParseCommand -Shell Command Line Parser
    - FRTOS1_AppConfigureTimerForRuntimeStats -Configures the timer for generating runtime statistics
    - FRTOS1_AppGetRuntimeCounterValueFromISR -returns the current runtime counter. Function can be called from an interrupt 
                 service routine.

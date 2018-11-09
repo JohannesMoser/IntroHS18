@@ -1115,7 +1115,9 @@ push-pull
         <Task_C_Additions v="no" />
         <Record_Stack_High_Address v="yes" />
       </group>
-      <boolgroup name="Segger System Viewer Trace" v="Disabled" />
+      <boolgroup name="Segger System Viewer Trace" v="Enabled">
+        <Segger_System_Viewer v="SYS1" />
+      </boolgroup>
       <boolgroup name="Percepio Trace" v="Disabled" />
       <boolgroup name="Generate Runtime Statistics" v="Enabled">
         <Use_Tick_Counter v="no" />
@@ -1719,7 +1721,7 @@ push-pull
     </Events>
   </Bean>
   <Bean name="SYS1" type="SeggerSystemView">
-    <Enabled v="N" />
+    <Enabled v="Y" />
     <Properties>
       <Component_name v="SYS1" />
       <Version v="V2.52a" />

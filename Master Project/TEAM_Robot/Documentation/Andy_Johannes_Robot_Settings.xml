@@ -1270,7 +1270,10 @@ push-pull
           <boolgroup name="User function for exiting critical section" v="no" />
         </group>
       </group>
-      <boolgroup name="Shell" v="Disabled" />
+      <boolgroup name="Shell" v="Enabled">
+        <Max_number_of_tasks v="8" />
+        <Shell v="CLS1" />
+      </boolgroup>
       <Utility v="UTIL1" />
     </Properties>
     <Methods>
@@ -1395,7 +1398,7 @@ push-pull
       <pvTaskGetThreadLocalStoragePointer v="generate code" />
       <pcTaskGetName v="generate code" />
       <vTaskGetInfo v="generate code" />
-      <ParseCommand v="don&amp;apos;t generate code" />
+      <ParseCommand v="generate code" />
       <AppConfigureTimerForRuntimeStats v="generate code" />
       <AppGetRuntimeCounterValueFromISR v="generate code" />
       <Deinit v="generate code" />

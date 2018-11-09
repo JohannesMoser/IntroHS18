@@ -211,6 +211,9 @@ static const SHELL_IODesc ios[] =
 #if RNET_CONFIG_REMOTE_STDIO
   {&RSTDIO_stdio, RSTDIO_DefaultShellBuffer, sizeof(RSTDIO_DefaultShellBuffer)},
 #endif
+
+
+
   /*! \todo Extend as needed */
 };
 
