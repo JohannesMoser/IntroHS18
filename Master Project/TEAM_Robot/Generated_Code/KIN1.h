@@ -4,9 +4,9 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : KinetisTools
-**     Version     : Component 01.038, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.040, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **
 **     Settings    :
@@ -31,6 +31,8 @@
 **         DisableCycleCounter    - void KIN1_DisableCycleCounter(void);
 **         GetCycleCounter        - uint32_t KIN1_GetCycleCounter(void);
 **         ParseCommand           - uint8_t KIN1_ParseCommand(const unsigned char* cmd, bool *handled, const...
+**         Deinit                 - void KIN1_Deinit(void);
+**         Init                   - void KIN1_Init(void);
 **
 **Copyright : 1997 - 2015 Freescale Semiconductor, Inc. 
 **All Rights Reserved.
@@ -343,6 +345,28 @@ void KIN1_SetLR(uint32_t setval);
 ** ===================================================================
 */
 #endif
+
+void KIN1_Deinit(void);
+/*
+** ===================================================================
+**     Method      :  KIN1_Deinit (component KinetisTools)
+**     Description :
+**         Driver de-initialization routine
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+
+void KIN1_Init(void);
+/*
+** ===================================================================
+**     Method      :  KIN1_Init (component KinetisTools)
+**     Description :
+**         Driver initialization routine
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
 
 /* END KIN1. */
 

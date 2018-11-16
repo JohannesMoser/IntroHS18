@@ -4,10 +4,10 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : KinetisTools
-**     Version     : Component 01.038, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.040, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **
 **     Settings    :
@@ -32,8 +32,10 @@
 **         DisableCycleCounter    - void KIN1_DisableCycleCounter(void);
 **         GetCycleCounter        - uint32_t KIN1_GetCycleCounter(void);
 **         ParseCommand           - uint8_t KIN1_ParseCommand(const unsigned char* cmd, bool *handled, const...
+**         Deinit                 - void KIN1_Deinit(void);
+**         Init                   - void KIN1_Init(void);
 **
-**     * Copyright (c) 2014-2017, Erich Styger
+**     * Copyright (c) 2014-2018, Erich Styger
 **      * Web:         https://mcuoneclipse.com
 **      * SourceForge: https://sourceforge.net/projects/mcuoneclipse
 **      * Git:         https://github.com/ErichStyger/McuOnEclipse_PEx
@@ -78,6 +80,8 @@
 #if MCUC1_CONFIG_NXP_SDK_2_0_USED
   #include "fsl_sim.h" /* system integration module */
 #elif MCUC1_CONFIG_SDK_VERSION_USED==MCUC1_CONFIG_SDK_KINETIS_1_3
+  #include "Cpu.h" /* include CPU related interfaces and defines */
+#elif MCUC1_CONFIG_SDK_VERSION_USED==MCUC1_CONFIG_SDK_S32K
   #include "Cpu.h" /* include CPU related interfaces and defines */
 #elif MCUC1_CONFIG_CPU_IS_ARM_CORTEX_M
   /* include device specific header file for CMSIS inside "KIN1config.h" */
@@ -169,6 +173,8 @@ void KIN1_SoftwareReset(void)
 #if MCUC1_CONFIG_CPU_IS_ARM_CORTEX_M
 #if MCUC1_CONFIG_PEX_SDK_USED
   SCB_AIRCR = SCB_AIRCR_VECTKEY(0x5FA) | SCB_AIRCR_SYSRESETREQ_MASK;
+#elif MCUC1_CONFIG_SDK_VERSION_USED==MCUC1_CONFIG_SDK_S32K
+  S32_SCB->AIRCR = S32_SCB_AIRCR_VECTKEY(0x5FA) | S32_SCB_AIRCR_SYSRESETREQ_MASK;
 #else
   SCB->AIRCR = (0x5FA<<SCB_AIRCR_VECTKEY_Pos)|SCB_AIRCR_SYSRESETREQ_Msk;
 #endif
@@ -635,6 +641,34 @@ uint32_t KIN1_GetCycleCounter(void)
   ** Implemented as macro in header file
 }
 */
+
+/*
+** ===================================================================
+**     Method      :  KIN1_Deinit (component KinetisTools)
+**     Description :
+**         Driver de-initialization routine
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void KIN1_Deinit(void)
+{
+  /* nothing needed */
+}
+
+/*
+** ===================================================================
+**     Method      :  KIN1_Init (component KinetisTools)
+**     Description :
+**         Driver initialization routine
+**     Parameters  : None
+**     Returns     : Nothing
+** ===================================================================
+*/
+void KIN1_Init(void)
+{
+  /* Nothing needed */
+}
 
 /* END KIN1. */
 

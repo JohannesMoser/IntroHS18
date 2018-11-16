@@ -4,14 +4,14 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : FreeRTOS
-**     Version     : Component 01.554, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.562, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-09, 14:10, # CodeGen: 17
+**     Date/Time   : 2018-11-16, 02:53, # CodeGen: 22
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
 **          Component name                                 : FRTOS1
-**          RTOS Version                                   : V10.0.1
+**          RTOS Version                                   : V10.1.1
 **          SDK                                            : MCUC1
 **          Kinetis SDK                                    : Disabled
 **          Custom Port                                    : Custom port settings
@@ -82,7 +82,8 @@
 **              Application allocated Heap                 : no
 **              Memory Allocation Scheme                   : Scheme 2: no merge
 **            Static Allocation                            : Disabled
-**            User Memory Section                          : Disabled
+**            User Memory Section                          : Enabled
+**              Heap Section Name                          : .m_data_20000000
 **          RTOS Adaptor                                   : Configures the RTOS adapter settings
 **            Memory allocation                            : Configures how memory is allocated and deallocated.
 **              User function for memory allocation        : no
@@ -253,13 +254,14 @@
 **  @{
 */         
 
+
 #ifndef __FRTOS1_H
 #define __FRTOS1_H
 
 /* MODULE FRTOS1. */
 #include "MCUC1.h" /* SDK and API used */
 #include "FreeRTOSConfig.h"
-#include "FRTOS1config.h" /* configuration */
+#include "FRTOS1config.h" /* configuration file for component */
 
 #if configUSE_SHELL
   #include "CLS1.h"

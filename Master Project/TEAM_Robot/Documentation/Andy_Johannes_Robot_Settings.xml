@@ -73,59 +73,7 @@ PE_DEBUGHALT();
       <group name="Startup">
         <Add_startup_file v="yes" />
       </group>
-      <boolgroup name="Generate linker file" v="yes">
-        <Stack_size v="1024" />
-        <Heap_size v="0" />
-        <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
-        <Default_memory_for_interrupts v="INTERNAL FLASH" />
-        <Default_memory_for_code v="INTERNAL FLASH" />
-        <Default_memory_for_data v="INTERNAL RAM" />
-        <list name="ROM/RAM Areas" v="6">
-          <group name="MemoryArea0">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_interrupts" />
-              <Qualifier v="RX" />
-              <Address v="0" />
-              <Size v="392" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea1">
-            <boolgroup name="ROM/RAM Area" v="Disabled" />
-          </group>
-          <group name="MemoryArea2">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_text" />
-              <Qualifier v="RX" />
-              <Address v="1040" />
-              <Size v="523248" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea3">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_text_10000000" />
-              <Qualifier v="RX" />
-              <Address v="268435456" />
-              <Size v="131072" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea4">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_data" />
-              <Qualifier v="RW" />
-              <Address v="536838144" />
-              <Size v="32768" />
-            </boolgroup>
-          </group>
-          <group name="MemoryArea5">
-            <boolgroup name="ROM/RAM Area" v="Enabled">
-              <Name v="m_data_20000000" />
-              <Qualifier v="RW" />
-              <Address v="536870912" />
-              <Size v="32768" />
-            </boolgroup>
-          </group>
-        </list>
-      </boolgroup>
+      <boolgroup name="Generate linker file" v="no" />
     </CompilerProperties>
   </CPU_Bean>
   <Bean name="CLS1" type="Shell">
@@ -322,6 +270,8 @@ PE_DEBUGHALT();
       <DisableCycleCounter v="generate code" />
       <GetCycleCounter v="generate code" />
       <ParseCommand v="generate code" />
+      <Deinit v="generate code" />
+      <Init v="generate code" />
     </Methods>
     <Events>
       <EmptySection_DummyValue />
@@ -1093,7 +1043,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="FRTOS1" />
-      <RTOS_Version v="V10.0.1" />
+      <RTOS_Version v="V10.1.1" />
       <SDK v="MCUC1" />
       <boolgroup name="Kinetis SDK" v="Disabled" />
       <group name="Custom Port">
@@ -1107,9 +1057,9 @@ push-pull
       <Application_Task_Tags v="no" />
       <Thread_Local_Storage_Pointers v="0" />
       <Use_Trace_Facility v="yes" />
+      <LinkTimeOptimizer_Helper v="no" />
       <group name="Debug Helpers">
         <Enable_GDB_Debug_Helper v="no" />
-        <Enable_LinkTimeOptimizer_Helper v="no" />
         <uxTopUsedPriority v="no" />
         <Heap_Indication_Constant v="no" />
         <Task_C_Additions v="no" />
@@ -1258,7 +1208,9 @@ push-pull
           <Memory_Allocation_Scheme v="Scheme 2: no merge" />
         </boolgroup>
         <boolgroup name="Static Allocation" v="Disabled" />
-        <boolgroup name="User Memory Section" v="Disabled" />
+        <boolgroup name="User Memory Section" v="Enabled">
+          <Heap_Section_Name v=".m_data_20000000" />
+        </boolgroup>
       </group>
       <group name="RTOS Adaptor">
         <group name="Memory allocation">
@@ -1727,7 +1679,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="SYS1" />
-      <Version v="V2.52a" />
+      <Version v="V2.52b" />
       <Application_Name v="&amp;quot;INTRO Robot&amp;quot;" />
       <Device_Name v="&amp;quot;K22FX512&amp;quot;" />
       <RAM_Base v="536870912" />
@@ -3427,6 +3379,7 @@ autoselected pull
         </inhrbean>
       </boolgroup>
       <Mutex v="yes" />
+      <Init___during_Startup v="no" />
     </Properties>
     <Methods>
       <ConfigureSPI v="generate code" />

@@ -279,6 +279,7 @@ void APP_Start(void) {
 	/* enable interrupts */
 	EVNT_HandleEvent(APP_EventHandler, clear);
 
+	/*
 	BaseType_t res;
 	xTaskHandle taskHndl;
 	res = xTaskCreate(BlinkyTask, "BlinkyTask", configMINIMAL_STACK_SIZE,
@@ -288,6 +289,7 @@ void APP_Start(void) {
 		//something went wrong
 		WAIT1_Waitms(10);
 	}
+	*/
 
 	vTaskStartScheduler();
 

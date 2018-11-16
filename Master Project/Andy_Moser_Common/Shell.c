@@ -20,6 +20,9 @@
 #if PL_CONFIG_HAS_BUZZER
   #include "Buzzer.h"
 #endif
+#if PL_LOCAL_CONFIG_HAS_ZORK
+  #include "zork_config.h"
+#endif
 #if PL_CONFIG_HAS_SHELL_QUEUE
   #include "ShellQueue.h"
 #endif
@@ -233,6 +236,11 @@ static const CLS1_ParseCommandCallback CmdParserTable[] =
 #if PL_CONFIG_HAS_BUZZER
   BUZ_ParseCommand,
 #endif
+#if PL_LOCAL_CONFIG_HAS_ZORK
+  ZORK_ParseCommand,
+#endif
+
+
 #if PL_CONFIG_HAS_REFLECTANCE
   #if REF_PARSE_COMMAND_ENABLED
   REF_ParseCommand,

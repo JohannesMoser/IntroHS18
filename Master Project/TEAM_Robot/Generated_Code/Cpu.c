@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-08, 15:13, # CodeGen: 15
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **
 **     Settings    :
@@ -1919,15 +1919,14 @@ void PE_low_level_init(void)
   NVICIP20 = NVIC_IP_PRI20(0x00);
   /* GPIOA_PDDR: PDD&=~0x4000 */
   GPIOA_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x4000));
-  /* ### McuLibConfig "MCUC1" init code ... */
-  MCUC1_Init();
+  MCUC1_Init(); /* ### McuLibConfig "MCUC1" init code ... */
   WAIT1_Init(); /* ### Wait "WAIT1" init code ... */
   CS1_Init(); /* ### CriticalSection "CS1" init code ... */
   XF1_Init(); /* ### XFormat "XF1" init code ... */
+  UTIL1_Init(); /* ### Utility "UTIL1" init code ... */
   CLS1_Init(); /* ### Shell "CLS1" init code ... */
-  /* ### HardFault "HF1" init code ... */
-  HF1_Init();
-  /* ### KinetisTools "KIN1" init code ... */
+  HF1_Init(); /* ### HardFault "HF1" init code ... */
+  KIN1_Init(); /* ### KinetisTools "KIN1" init code ... */
   /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd1_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -1946,8 +1945,7 @@ void PE_low_level_init(void)
   (void)BitIoLdd4_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd5" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd5_Init(NULL);
-  /* ### LED "LED_IR" init code ... */
-  LED_IR_Init(); /* initialize LED driver */
+  LED_IR_Init(); /* ### LED "LED_IR" init code ... */
   /* ### BitIO_LDD "BitIoLdd6" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd6_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd7" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */

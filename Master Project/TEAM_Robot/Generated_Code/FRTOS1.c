@@ -4,15 +4,15 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : FreeRTOS
-**     Version     : Component 01.554, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.562, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-09, 14:10, # CodeGen: 17
+**     Date/Time   : 2018-11-16, 02:53, # CodeGen: 22
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
 **          Component name                                 : FRTOS1
-**          RTOS Version                                   : V10.0.1
+**          RTOS Version                                   : V10.1.1
 **          SDK                                            : MCUC1
 **          Kinetis SDK                                    : Disabled
 **          Custom Port                                    : Custom port settings
@@ -25,9 +25,9 @@
 **          Application Task Tags                          : no
 **          Thread Local Storage Pointers                  : 0
 **          Use Trace Facility                             : yes
+**          LinkTimeOptimizer Helper                       : no
 **          Debug Helpers                                  : 
 **            Enable GDB Debug Helper                      : no
-**            Enable LinkTimeOptimizer Helper              : no
 **            uxTopUsedPriority                            : no
 **            Heap Indication Constant                     : no
 **            Task C Additions                             : no
@@ -88,7 +88,8 @@
 **              Linker Heap Size Symbol                    : __heap_size
 **              Memory Allocation Scheme                   : Scheme 2: no merge
 **            Static Allocation                            : Disabled
-**            User Memory Section                          : Disabled
+**            User Memory Section                          : Enabled
+**              Heap Section Name                          : .m_data_20000000
 **          RTOS Adaptor                                   : Configures the RTOS adapter settings
 **            Memory allocation                            : Configures how memory is allocated and deallocated.
 **              User function for memory allocation        : no

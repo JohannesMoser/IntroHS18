@@ -4,14 +4,14 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : SeggerSystemView
-**     Version     : Component 01.059, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.060, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-08, 15:13, # CodeGen: 15
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **          This component implements and integrates the SEGGER Systemview library for FreeRTOS.
 **     Settings    :
 **          Component name                                 : SYS1
-**          Version                                        : V2.52a
+**          Version                                        : V2.52b
 **          Application Name                               : "INTRO Robot"
 **          Device Name                                    : "K22FX512"
 **          RAM Base                                       : 0x20000000

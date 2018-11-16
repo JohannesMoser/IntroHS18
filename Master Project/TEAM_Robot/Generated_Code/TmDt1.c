@@ -7,7 +7,7 @@
 **     Version     : Component 01.061, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **         Software date/time module.
 **     Settings    :
@@ -752,7 +752,9 @@ uint8_t TmDt1_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_S
         time.Hour = hour;
         time.Min = minute;
         time.Sec = second;
+#if TmDt1_HAS_SEC100_IN_TIMEREC
         time.Sec100 = 0;
+#endif
         date.Day = day;
         date.Month = month;
         date.Year = year;
@@ -1376,7 +1378,9 @@ void TmDt1_UnixSecondsToTimeDateCustom(int32_t seconds, int8_t offset_hours, TIM
     time->Hour = hours;
     time->Min = minutes;
     time->Sec = (uint8_t)seconds;
+#if TmDt1_HAS_SEC100_IN_TIMEREC
     time->Sec100 = 0;
+#endif
   }
 }
 

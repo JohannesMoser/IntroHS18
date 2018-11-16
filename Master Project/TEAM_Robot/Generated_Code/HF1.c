@@ -4,12 +4,12 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : HardFault
-**     Version     : Component 01.020, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.021, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
-**          Component to simplify hard faults for ARM/Kinetis.
+**          Component to simplify hard faults for ARM (Kinetis, S32K).
 **     Settings    :
 **          Component name                                 : HF1
 **          SDK                                            : MCUC1
@@ -19,7 +19,7 @@
 **         Deinit           - void HF1_Deinit(void);
 **         Init             - void HF1_Init(void);
 **
-**     * Copyright (c) 2014-2017, Erich Styger
+**     * Copyright (c) 2014-2018, Erich Styger
 **      * Web:         https://mcuoneclipse.com
 **      * SourceForge: https://sourceforge.net/projects/mcuoneclipse
 **      * Git:         https://github.com/ErichStyger/McuOnEclipse_PEx
@@ -50,7 +50,7 @@
 ** @file HF1.c
 ** @version 01.00
 ** @brief
-**          Component to simplify hard faults for ARM/Kinetis.
+**          Component to simplify hard faults for ARM (Kinetis, S32K).
 */         
 /*!
 **  @addtogroup HF1_module HF1 module documentation

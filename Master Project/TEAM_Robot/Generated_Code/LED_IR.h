@@ -4,9 +4,9 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : LED
-**     Version     : Component 01.074, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.075, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
 **     Abstract    :
 **          This component implements a universal driver for a single LED.
 **     Settings    :
