@@ -48,6 +48,9 @@
 #if PL_CONFIG_HAS_MOTOR_TACHO
   #include "Tacho.h"
 #endif
+#if TACHO_SAMPLING_TASK_ENABLED
+#include "Platform_Local.h"
+#endif
 #if PL_CONFIG_HAS_PID
   #include "Pid.h"
 #endif
@@ -91,6 +94,9 @@
 void PL_Init(void) {
 #if PL_CONFIG_HAS_LEDS
   LED_Init();
+#endif
+#if TACHO_SAMPLING_TASK_ENABLED
+  Tacho_Task_init();
 #endif
 #if PL_CONFIG_HAS_EVENTS
   EVNT_Init();

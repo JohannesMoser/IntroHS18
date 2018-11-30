@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
+**     Date/Time   : 2018-11-29, 16:15, # CodeGen: 47
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -22,10 +22,10 @@
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : PIT_LDVAL1
-**            Period                                       : 10 ms
+**            Period                                       : 50 µs
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_PIT1
-**              Interrupt priority                         : minimal priority
+**              Interrupt priority                         : 4
 **          Channel list                                   : 0
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -175,10 +175,10 @@ LDD_TDeviceData* TU_QuadInt_Init(LDD_TUserData *UserDataPtr)
   PIT_TCTRL1 = 0x00U;                  /* Clear control register */
   /* PIT_TFLG1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,TIF=1 */
   PIT_TFLG1 = PIT_TFLG_TIF_MASK;       /* Clear timer flag register */
-  /* PIT_LDVAL1: TSV=0x000927BF */
-  PIT_LDVAL1 = PIT_LDVAL_TSV(0x000927BF); /* Set up load register */
-  /* NVICIP49: PRI49=0xF0 */
-  NVICIP49 = NVIC_IP_PRI49(0xF0);
+  /* PIT_LDVAL1: TSV=0x0BB7 */
+  PIT_LDVAL1 = PIT_LDVAL_TSV(0x0BB7);  /* Set up load register */
+  /* NVICIP49: PRI49=0x40 */
+  NVICIP49 = NVIC_IP_PRI49(0x40);
   /* NVICISER1: SETENA|=0x00020000 */
   NVICISER1 |= NVIC_ISER_SETENA(0x00020000);
   /* PIT_TCTRL1: ??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,??=0,CHN=0,TIE=1,TEN=1 */

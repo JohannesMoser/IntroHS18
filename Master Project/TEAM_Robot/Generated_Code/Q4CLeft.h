@@ -6,13 +6,13 @@
 **     Component   : QuadCounter
 **     Version     : Component 01.031, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-29, 15:31, # CodeGen: 40
 **     Abstract    :
 **
 This driver implements a quadrature encoder using two signals (C1 and C2) to generate position information.
 **     Settings    :
 **          Component name                                 : Q4CLeft
-**          C1 and C2 swapped                              : no
+**          C1 and C2 swapped                              : yes
 **          Counter Type                                   : 32bit
 **          Method                                         : 
 **            Sampling                                     : Enabled
@@ -92,7 +92,7 @@ This driver implements a quadrature encoder using two signals (C1 and C2) to gen
 #include "MCUC1.h"
 
 
-#define Q4CLeft_SWAP_PINS  0 /* 1: C1 and C2 are swapped */
+#define Q4CLeft_SWAP_PINS  1 /* 1: C1 and C2 are swapped */
 #define Q4CLeft_SWAP_PINS_AT_RUNTIME  1 /* 1: C1 and C2 are swapped at runtime, if SwapPins() method is available */
 #define Q4CLeft_GET_C1_PIN()      (C12_GetVal())
 #define Q4CLeft_GET_C2_PIN()      (C23_GetVal())

@@ -3,7 +3,7 @@
   <Header>
     <Name>Andy_Johannes_Robot</Name>
     <SavedBy>Erich Styger</SavedBy>
-    <ModificationStamp>270</ModificationStamp>
+    <ModificationStamp>296</ModificationStamp>
     <Date>2016-02-29</Date>
     <IDE>Eclipse IDE</IDE>
     <PEversion>1.12.2.RT7_b1550-0615</PEversion>
@@ -29,7 +29,7 @@
     <UseExistingModules>true</UseExistingModules>
     <RenamePeripheries>false</RenamePeripheries>
     <Autodependency>true</Autodependency>
-    <ProjectCompNumb>955</ProjectCompNumb>
+    <ProjectCompNumb>1000</ProjectCompNumb>
     <DelUnusedPreviouslyGenFiles>true</DelUnusedPreviouslyGenFiles>
     <GeneratedCodeFrozen>false</GeneratedCodeFrozen>
     <AssignInitComponentNameToPrph>true</AssignInitComponentNameToPrph>
@@ -10782,8 +10782,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>false</Value>
-        <Expanded>false</Expanded>
+        <Value>true</Value>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>NofHistoryItems</ItemSymbol>
@@ -21888,7 +21888,7 @@
         <ItemSymbol>TicksGroup</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>true</Expanded>
+        <Expanded>false</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>TicklessIdleModeEnabled</ItemSymbol>
@@ -21976,7 +21976,7 @@
         <ItemSymbol>QueuesGroup</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Expanded>false</Expanded>
+        <Expanded>true</Expanded>
       </ItemState>
       <ItemState>
         <ItemSymbol>QueueRegistrySize</ItemSymbol>
@@ -22083,7 +22083,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>2048</Value>
+        <Value>16000</Value>
         <Base>DEC</Base>
       </ItemState>
       <ItemState>
@@ -22109,8 +22109,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <EnumSymbVal>Scheme2</EnumSymbVal>
+        <Index>3</Index>
+        <EnumSymbVal>Scheme4</EnumSymbVal>
       </ItemState>
       <ItemState>
         <ItemSymbol>StaticAllocation</ItemSymbol>
@@ -28085,7 +28085,7 @@
         <ItemSymbol>TmgCounter</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>1.875 MHz</Value>
+        <Value>15 MHz</Value>
         <RuntimeSetting>0</RuntimeSetting>
         <ReqDevPrescHigh>-1</ReqDevPrescHigh>
         <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -28111,7 +28111,7 @@
         <ReqSrcClkPrescSpeedMode5>-1</ReqSrcClkPrescSpeedMode5>
         <ReqSrcClkPrescSpeedMode6>-1</ReqSrcClkPrescSpeedMode6>
         <ReqSrcClkPrescSpeedMode7>-1</ReqSrcClkPrescSpeedMode7>
-        <InitValue>1.875 MHz</InitValue>
+        <InitValue>15 MHz</InitValue>
         <Precision>5.0</Precision>
         <PrecInProc>true</PrecInProc>
         <LowLimit />
@@ -28258,7 +28258,7 @@
         <ItemSymbol>OverrunPeriod</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>34.952533 ms</Value>
+        <Value>4.369067 ms</Value>
         <RuntimeSetting>0</RuntimeSetting>
         <ReqDevPrescHigh>-1</ReqDevPrescHigh>
         <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -28284,7 +28284,7 @@
         <ReqSrcClkPrescSpeedMode5>-1</ReqSrcClkPrescSpeedMode5>
         <ReqSrcClkPrescSpeedMode6>-1</ReqSrcClkPrescSpeedMode6>
         <ReqSrcClkPrescSpeedMode7>-1</ReqSrcClkPrescSpeedMode7>
-        <InitValue>34.952533 ms</InitValue>
+        <InitValue>4.369067 ms</InitValue>
         <Precision>5.0</Precision>
         <PrecInProc>true</PrecInProc>
         <LowLimit />
@@ -32485,8 +32485,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>1</Index>
-        <Value>false</Value>
+        <Index>0</Index>
+        <Value>true</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterType</ItemSymbol>
@@ -33920,8 +33920,8 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Index>0</Index>
-        <Value>true</Value>
+        <Index>1</Index>
+        <Value>false</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>CounterType</ItemSymbol>
@@ -40905,7 +40905,7 @@
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
         <PropertyModelIsAutomatic>false</PropertyModelIsAutomatic>
-        <Value>minimal priority</Value>
+        <Value>4</Value>
       </ItemState>
       <ItemState>
         <ItemSymbol>DSPgrp</ItemSymbol>
@@ -40965,7 +40965,7 @@
         <ItemSymbol>_Tmg</ItemSymbol>
         <ReadOnly>false</ReadOnly>
         <UserReadOnly>false</UserReadOnly>
-        <Value>10 ms</Value>
+        <Value>50 µs</Value>
         <RuntimeSetting>0</RuntimeSetting>
         <ReqDevPrescHigh>-1</ReqDevPrescHigh>
         <ReqDevPrescLow>-1</ReqDevPrescLow>
@@ -40991,13 +40991,13 @@
         <ReqSrcClkPrescSpeedMode5>-1</ReqSrcClkPrescSpeedMode5>
         <ReqSrcClkPrescSpeedMode6>-1</ReqSrcClkPrescSpeedMode6>
         <ReqSrcClkPrescSpeedMode7>-1</ReqSrcClkPrescSpeedMode7>
-        <InitValue>10 ms</InitValue>
+        <InitValue>50 us</InitValue>
         <Precision>5.0</Precision>
         <PrecInProc>true</PrecInProc>
         <LowLimit />
         <HighLimit />
         <List lines_count="0" />
-        <UnitText>ms</UnitText>
+        <UnitText>us</UnitText>
         <MinCounterTicks>0</MinCounterTicks>
         <ControlledTimingCfgFromPropertySymbol>IntPeriodTmg</ControlledTimingCfgFromPropertySymbol>
         <ControlledTimingCfgFromComponentRef>InheritedComponent</ControlledTimingCfgFromComponentRef>
@@ -41211,13 +41211,13 @@
               <ReqSrcClkPrescSpeedMode5>-1</ReqSrcClkPrescSpeedMode5>
               <ReqSrcClkPrescSpeedMode6>-1</ReqSrcClkPrescSpeedMode6>
               <ReqSrcClkPrescSpeedMode7>-1</ReqSrcClkPrescSpeedMode7>
-              <InitValue>10 ms</InitValue>
+              <InitValue>50 us</InitValue>
               <Precision>5.0</Precision>
               <PrecInProc>true</PrecInProc>
               <LowLimit />
               <HighLimit />
               <List lines_count="0" />
-              <UnitText>ms</UnitText>
+              <UnitText>us</UnitText>
               <MinCounterTicks>0</MinCounterTicks>
               <ControlledTimingCfgFromPropertySymbol>Tmg_Period</ControlledTimingCfgFromPropertySymbol>
               <ControlledTimingCfgFromComponentRef>LinkedTimerUnit</ControlledTimingCfgFromComponentRef>
@@ -42015,13 +42015,13 @@
         <ReqSrcClkPrescSpeedMode5>-1</ReqSrcClkPrescSpeedMode5>
         <ReqSrcClkPrescSpeedMode6>-1</ReqSrcClkPrescSpeedMode6>
         <ReqSrcClkPrescSpeedMode7>-1</ReqSrcClkPrescSpeedMode7>
-        <InitValue>10 ms</InitValue>
+        <InitValue>50 us</InitValue>
         <Precision>5.0</Precision>
         <PrecInProc>true</PrecInProc>
         <LowLimit />
         <HighLimit />
         <List lines_count="0" />
-        <UnitText>ms</UnitText>
+        <UnitText>us</UnitText>
         <MinCounterTicks>0</MinCounterTicks>
       </ItemState>
       <ItemState>

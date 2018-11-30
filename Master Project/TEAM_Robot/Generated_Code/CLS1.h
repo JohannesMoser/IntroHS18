@@ -6,7 +6,7 @@
 **     Component   : Shell
 **     Version     : Component 01.098, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-29, 16:06, # CodeGen: 45
 **     Abstract    :
 **         Module implementing a command line shell.
 **     Settings    :
@@ -30,7 +30,11 @@
 **          Default Serial                                 : Disabled
 **          Semaphore                                      : no
 **          Critical Section                               : CS1
-**          History                                        : no
+**          History                                        : yes
+**            Number of History Items                      : 4
+**            Stored Characters                            : 32
+**            Char for Next                                : \t
+**            Char for Previous                            : \e
 **          Kinetis SDK                                    : MCUC1
 **     Contents    :
 **         PrintPrompt                  - void CLS1_PrintPrompt(CLS1_ConstStdIOType *io);
@@ -169,10 +173,11 @@
 #include <stddef.h> /* for size_t */
 
 /* settings for command line history */
-#define CLS1_HISTORY_ENABLED  0        /* 1: enabled, 0: disabled */
-#define CLS1_NOF_HISTORY      0        /* number of items in history */
-#define CLS1_HIST_LEN         0        /* history buffer size */
-
+#define CLS1_HISTORY_ENABLED   1       /* 1: enabled, 0: disabled */
+#define CLS1_NOF_HISTORY       4       /* number of items in history */
+#define CLS1_HIST_LEN          32      /* history buffer size */
+#define CLS1_HISTORY_PREV_CHAR '\e'    /* character for 'previous' in history */
+#define CLS1_HISTORY_NEXT_CHAR '\t'    /* character for 'next' in history */
 /* settings for silent prefix char */
 #define CLS1_SILENT_PREFIX_CHAR    '#' /* with this char as first character in the cmd, printing is silent. Use a space to disable it */
 #define CLS1_NO_SILENT_PREFIX_CHAR ' ' /* used for no silent prefix char */

@@ -7,13 +7,13 @@
 **     Version     : Component 01.031, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-29, 15:31, # CodeGen: 40
 **     Abstract    :
 **
 This driver implements a quadrature encoder using two signals (C1 and C2) to generate position information.
 **     Settings    :
 **          Component name                                 : Q4CLeft
-**          C1 and C2 swapped                              : no
+**          C1 and C2 swapped                              : yes
 **          Counter Type                                   : 32bit
 **          Method                                         : 
 **            Sampling                                     : Enabled

@@ -64,7 +64,8 @@ unsigned CLS1_fprintf(void *stream, const char *fmt, ...) {
 }
 #endif
 
-#if USE_FATFS
+ #if USE_FATFS
+
 static FAT1_FATFS mountDesc;
 static FIL dtextcFileDesc; /* file handle for the data file */
 static FIL dsaveFileDesc; /* file handle for the save file */
@@ -202,15 +203,16 @@ void zork_config(void) {
 	}
 #endif
 }
+xTaskHandle taskHndl = NULL;
 
 void _exit(int i) { /* own exit routine */
-	CLS1_SendStr("exit Zork program\r\n", CLS1_GetStdio()->stdErr);
-	for (;;) {
-	}
+	CLS1_SendStr("exit Zork program\r\n", CLS1_GetStdio()->stdOut);
+	FRTOS1_vTaskSuspend(taskHndl);
+	zork_config();
+	run_zork_game();
 }
 
 static void ZorkTask(void *pvParameters) {
-
 	zork_config();
 	run_zork_game();
 	for (;;) {
@@ -234,34 +236,40 @@ uint8_t ZORK_ParseCommand(const uint8_t *cmd, bool *handled,
 	} else if ((UTIL1_strcmp((char*)cmd, CLS1_CMD_STATUS) == 0)
 			|| (UTIL1_strcmp((char*)cmd, "ZORK start") == 0)) {
 		*handled = TRUE;
+		//if (FRTOS1_uxTaskGetNumberOfTasks() < 3) {
 
-		//zork_config();
-		//run_zork_game();
-		xTaskHandle taskHndl;
-		if (xTaskCreate(ZorkTask, "Zork", configMINIMAL_STACK_SIZE + 100, NULL,
-		tskIDLE_PRIORITY + 1, &taskHndl) != pdPASS) {
-			for (;;) {
+		if (taskHndl == NULL) {
+			if (xTaskCreate(ZorkTask, "Zork", configMINIMAL_STACK_SIZE + 300,
+			NULL,
+			tskIDLE_PRIORITY + 1, &taskHndl) != pdPASS) {
+				for (;;) {
+				}
 			}
 		}
 
+		else {
 
-
-		/*
-		 BaseType_t res;
-		 res = xTaskCreate(ZorkTask, "Zorktask", configMINIMAL_STACK_SIZE+1,
-		 NULL, tskIDLE_PRIORITY+1, NULL);
-
-		 if (res != pdPASS) {
-		 //something went wrong
-		 WAIT1_Waitms(10);
-		 }
-		 */
-
+			FRTOS1_vTaskResume(taskHndl);
+		}
+		*handled = TRUE;
 		return ERR_OK;
+
 	} else if ((UTIL1_strcmp((char*)cmd, CLS1_CMD_STATUS) == 0)
 			|| (UTIL1_strcmp((char*)cmd, "ZORK stop") == 0)) {
-		_exit(10);
-	}
+		if (taskHndl == NULL) {
+			CLS1_SendStr("no Task to kill dude\r\n",
+					CLS1_GetStdio()->stdOut);
 
+		} else {
+			FRTOS1_vTaskDelete(taskHndl);
+			taskHndl = NULL;
+			CLS1_SendStr("grande! you just killed the Zork task\r\n",
+					CLS1_GetStdio()->stdOut);
+		}
+
+		*handled = TRUE;
+		return ERR_OK;
+	}
+	*handled = TRUE;
 	return ERR_OK; /* no error */
 }

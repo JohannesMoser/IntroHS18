@@ -25,8 +25,9 @@ void TACHO_CalcSpeed(void);
 /*!
  * \brief Sampling routine to calculate speed, must be called periodically with a fixed frequency.
  */
-void TACHO_Sample(void);
 
+void TACHO_Sample(void);
+void Tacho_Task_init(void);
 #if PL_CONFIG_HAS_SHELL
 #include "CLS1.h"
 /*!

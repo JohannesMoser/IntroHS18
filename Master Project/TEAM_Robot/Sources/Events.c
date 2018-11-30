@@ -29,6 +29,7 @@
 #include "Cpu.h"
 #include "Events.h"
 #include "Keys.h"
+#include "Tacho.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -73,7 +74,8 @@ void Cpu_OnNMIINT(void)
 */
 void QuadInt_OnInterrupt(void)
 {
-  /* Write your code here ... */
+	Q4CLeft_Sample();
+	Q4CRight_Sample();
 }
 
 /*
@@ -110,6 +112,7 @@ void TI2_OnInterrupt(void)
 */
 void TI1_OnInterrupt(void)
 {
+	//TACHO_Sample();
 	TMR_OnInterrupt();
 }
 

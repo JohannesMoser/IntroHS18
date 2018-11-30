@@ -7,7 +7,7 @@
 **     Version     : Component 01.098, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-10-12, 16:00, # CodeGen: 3
+**     Date/Time   : 2018-11-29, 16:06, # CodeGen: 45
 **     Abstract    :
 **         Module implementing a command line shell.
 **     Settings    :
@@ -27,7 +27,11 @@
 **          Multi Command                                  : Enabled
 **            Length                                       : 32
 **            Separator                                    : ;
-**          History                                        : no
+**          History                                        : yes
+**            Number of History Items                      : 4
+**            Stored Characters                            : 32
+**            Char for Next                                : \t
+**            Char for Previous                            : \e
 **          Mutex                                          : no
 **          SDK                                            : MCUC1
 **          Default Serial                                 : Disabled

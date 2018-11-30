@@ -7,7 +7,7 @@
 **     Version     : Component 01.164, Driver 01.11, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
+**     Date/Time   : 2018-11-29, 16:15, # CodeGen: 47
 **     Abstract    :
 **          This TimerUnit component provides a low level API for unified hardware access across
 **          various timer devices using the Prescaler-Counter-Compare-Capture timer structure.
@@ -22,10 +22,10 @@
 **            Counter frequency                            : Auto select
 **          Counter restart                                : On-match
 **            Period device                                : PIT_LDVAL1
-**            Period                                       : 10 ms
+**            Period                                       : 50 µs
 **            Interrupt                                    : Enabled
 **              Interrupt                                  : INT_PIT1
-**              Interrupt priority                         : minimal priority
+**              Interrupt priority                         : 4
 **          Channel list                                   : 0
 **          Initialization                                 : 
 **            Enabled in init. code                        : yes
@@ -122,7 +122,7 @@ extern "C" {
 #define TU_QuadInt_CNT_INP_FREQ_U_0 0x03938700UL /* Counter input frequency in Hz */
 #define TU_QuadInt_CNT_INP_FREQ_R_0 59998800.02399952F /* Counter input frequency in Hz */
 #define TU_QuadInt_CNT_INP_FREQ_COUNT 0U /* Count of predefined counter input frequencies */
-#define TU_QuadInt_PERIOD_TICKS 0x000927C0UL /* Initialization value of period in 'counter ticks' */
+#define TU_QuadInt_PERIOD_TICKS 0x0BB8UL /* Initialization value of period in 'counter ticks' */
 #define TU_QuadInt_NUMBER_OF_CHANNELS 0x00U /* Count of predefined channels */
 #define TU_QuadInt_COUNTER_WIDTH 0x20U /* Counter width in bits  */
 #define TU_QuadInt_COUNTER_DIR DIR_DOWN /* Direction of counting */
