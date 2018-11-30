@@ -274,6 +274,29 @@ static void APP_AdoptToHardware(void) {
 xQueueHandle queue_handler_1 = NULL;
 xQueueHandle queue_handler_2 = NULL;
 
+static void vTimerCallback1SecExpired(xTimerHandle pxTimer) {
+  LED1_Neg(); /* toggle red LED */
+
+}
+void init_SW_timer(void){
+	xTimerHandle timerHndl1Sec;
+
+	timerHndl1Sec = xTimerCreate(
+	      "timer1Sec", /* name */
+	      pdMS_TO_TICKS(1000), /* period/time */
+	      pdTRUE, /* auto reload */
+	      (void*)0, /* timer ID */
+	      vTimerCallback1SecExpired); /* callback */
+	if (timerHndl1Sec==NULL) {
+	  for(;;); /* failure! */
+	}
+	if (xTimerStart(timerHndl1Sec, 0)!=pdPASS) {
+	  for(;;); /* failure!?! */
+	}
+
+
+}
+
 void APP_Start(void) {
 	PL_Init();
 	APP_AdoptToHardware();
@@ -284,6 +307,11 @@ void APP_Start(void) {
 	//__asm volatile("cpsie i");
 	/* enable interrupts */
 	EVNT_HandleEvent(APP_EventHandler, clear);
+
+
+
+	init_SW_timer();
+
 
 	vTaskStartScheduler();
 

@@ -6,7 +6,7 @@
 **     Component   : FreeRTOS
 **     Version     : Component 01.562, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-22, 15:07, # CodeGen: 26
+**     Date/Time   : 2018-11-30, 16:19, # CodeGen: 38
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -75,7 +75,11 @@
 **          Semaphores and Mutexes                         : Settings for Mutex and Semaphore
 **            Use Mutexes                                  : yes
 **            Use Recursive Mutexes                        : yes
-**          Timers                                         : Disabled
+**          Timers                                         : Enabled
+**            Priority                                     : 2
+**            Queue Length                                 : 10
+**            Stack Depth                                  : 200
+**            Use Daemon Task Startup Hook                 : no
 **          Memory                                         : Settings for the memory and heap allocation
 **            Dynamic Allocation                           : Enabled
 **              Heap Size                                  : 16000
