@@ -73,7 +73,59 @@ PE_DEBUGHALT();
       <group name="Startup">
         <Add_startup_file v="yes" />
       </group>
-      <boolgroup name="Generate linker file" v="no" />
+      <boolgroup name="Generate linker file" v="yes">
+        <Stack_size v="1024" />
+        <Heap_size v="0" />
+        <Set_memory_segments_to_default v="Click to set default &amp;gt;" />
+        <Default_memory_for_interrupts v="INTERNAL FLASH" />
+        <Default_memory_for_code v="INTERNAL FLASH" />
+        <Default_memory_for_data v="INTERNAL RAM" />
+        <list name="ROM/RAM Areas" v="6">
+          <group name="MemoryArea0">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_interrupts" />
+              <Qualifier v="RX" />
+              <Address v="0" />
+              <Size v="392" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea1">
+            <boolgroup name="ROM/RAM Area" v="Disabled" />
+          </group>
+          <group name="MemoryArea2">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_text" />
+              <Qualifier v="RX" />
+              <Address v="1040" />
+              <Size v="523248" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea3">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_text_10000000" />
+              <Qualifier v="RX" />
+              <Address v="268435456" />
+              <Size v="131072" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea4">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_data" />
+              <Qualifier v="RW" />
+              <Address v="536838144" />
+              <Size v="32768" />
+            </boolgroup>
+          </group>
+          <group name="MemoryArea5">
+            <boolgroup name="ROM/RAM Area" v="Enabled">
+              <Name v="m_data_20000000" />
+              <Qualifier v="RW" />
+              <Address v="536870912" />
+              <Size v="32768" />
+            </boolgroup>
+          </group>
+        </list>
+      </boolgroup>
     </CompilerProperties>
   </CPU_Bean>
   <Bean name="CLS1" type="Shell">
@@ -1189,7 +1241,7 @@ push-pull
       </group>
       <group name="Ticks">
         <boolgroup name="Tickless Idle Mode" v="Disabled" />
-        <Tick_Rate__Hz_ v="100" />
+        <Tick_Rate__Hz_ v="1000" />
         <Use_16bit_ticks v="no" />
         <boolgroup name="non-LDD Tick" v="Disabled" />
         <boolgroup name="LDD Tick" v="Disabled" />
@@ -1218,9 +1270,7 @@ push-pull
           <Memory_Allocation_Scheme v="Scheme 4: merge free blocks" />
         </boolgroup>
         <boolgroup name="Static Allocation" v="Disabled" />
-        <boolgroup name="User Memory Section" v="Enabled">
-          <Heap_Section_Name v=".m_data_20000000" />
-        </boolgroup>
+        <boolgroup name="User Memory Section" v="Disabled" />
       </group>
       <group name="RTOS Adaptor">
         <group name="Memory allocation">

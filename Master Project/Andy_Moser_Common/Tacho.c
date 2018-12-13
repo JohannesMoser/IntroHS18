@@ -46,7 +46,7 @@ static void SamplingTask(void *pvParameters) {
 	for (;;) {
 
 		TACHO_Sample();
-		vTaskDelay(pdMS_TO_TICKS(10));
+		vTaskDelay(pdMS_TO_TICKS(5));
 
 	}
 }
@@ -55,7 +55,7 @@ void Tacho_Task_init(void) {
 
 	BaseType_t res;
 	xTaskHandle taskHndl;
-	res = xTaskCreate(SamplingTask, "Sampling Tacho", configMINIMAL_STACK_SIZE,
+	res = xTaskCreate(SamplingTask, "Sampling Tacho", 500/sizeof(StackType_t),
 	NULL, tskIDLE_PRIORITY + 2, &taskHndl);
 
 	if (res != pdPASS) {

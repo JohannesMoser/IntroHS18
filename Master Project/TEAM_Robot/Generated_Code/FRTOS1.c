@@ -7,7 +7,7 @@
 **     Version     : Component 01.562, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-30, 16:19, # CodeGen: 38
+**     Date/Time   : 2018-12-13, 14:26, # CodeGen: 40
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
@@ -68,7 +68,7 @@
 **            TaskExitError Handler                        : no
 **          Ticks                                          : Settings for the periodic tick timer
 **            Tickless Idle Mode                           : Disabled
-**            Tick Rate (Hz)                               : 100
+**            Tick Rate (Hz)                               : 1000
 **            Use 16bit ticks                              : no
 **            non-LDD Tick                                 : Disabled
 **            LDD Tick                                     : Disabled
@@ -92,8 +92,7 @@
 **              Linker Heap Size Symbol                    : __heap_size
 **              Memory Allocation Scheme                   : Scheme 4: merge free blocks
 **            Static Allocation                            : Disabled
-**            User Memory Section                          : Enabled
-**              Heap Section Name                          : .m_data_20000000
+**            User Memory Section                          : Disabled
 **          RTOS Adaptor                                   : Configures the RTOS adapter settings
 **            Memory allocation                            : Configures how memory is allocated and deallocated.
 **              User function for memory allocation        : no

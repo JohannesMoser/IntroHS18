@@ -66,7 +66,7 @@
 #define configUSE_TICK_HOOK_NAME                  FRTOS1_vApplicationTickHook
 #define configUSE_MALLOC_FAILED_HOOK              1 /* 1: use MallocFailed hook; 0: no MallocFailed hook */
 #define configUSE_MALLOC_FAILED_HOOK_NAME         FRTOS1_vApplicationMallocFailedHook
-#define configTICK_RATE_HZ                        (100) /* frequency of tick interrupt */
+#define configTICK_RATE_HZ                        (1000) /* frequency of tick interrupt */
 #define configSYSTICK_USE_LOW_POWER_TIMER         0 /* If using Kinetis Low Power Timer (LPTMR) instead of SysTick timer */
 #define configSYSTICK_LOW_POWER_TIMER_CLOCK_HZ    1 /* 1 kHz LPO timer. Set to 1 if not used */
 #if MCUC1_CONFIG_NXP_SDK_USED || MCUC1_CONFIG_SDK_VERSION_USED==MCUC1_CONFIG_SDK_GENERIC
@@ -91,7 +91,7 @@
 #define configUSE_HEAP_SCHEME                     4 /* either 1 (only alloc), 2 (alloc/free), 3 (malloc), 4 (coalesc blocks), 5 (multiple blocks), 6 (newlib) */
 #define configFRTOS_MEMORY_SCHEME                 configUSE_HEAP_SCHEME /* for backwards compatible only with legacy name */
 #define configTOTAL_HEAP_SIZE                     (16000) /* size of heap in bytes */
-#define configUSE_HEAP_SECTION_NAME               1 /* set to 1 if a custom section name (configHEAP_SECTION_NAME_STRING) shall be used, 0 otherwise */
+#define configUSE_HEAP_SECTION_NAME               0 /* set to 1 if a custom section name (configHEAP_SECTION_NAME_STRING) shall be used, 0 otherwise */
 #if configUSE_HEAP_SECTION_NAME
 #define configHEAP_SECTION_NAME_STRING            ".m_data_20000000" /* heap section name (use e.g. ".m_data_20000000" for gcc and "m_data_20000000" for IAR). Check your linker file for the name used. */
 #endif
