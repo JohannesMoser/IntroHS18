@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
+**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -371,6 +371,16 @@
 #include "QuadInt.h"
 #include "TimerIntLdd2.h"
 #include "TU_QuadInt.h"
+#include "RNET1.h"
+#include "RF1.h"
+#include "CE1.h"
+#include "BitIoLdd22.h"
+#include "CSN1.h"
+#include "BitIoLdd23.h"
+#include "IRQ1.h"
+#include "ExtIntLdd2.h"
+#include "SM1.h"
+#include "SMasterLdd2.h"
 #include "TMOUT1.h"
 #include "USB1.h"
 #include "CDC1.h"
@@ -963,21 +973,6 @@ PE_ISR(Cpu_ivINT_SPI0)
 
 /*
 ** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_SPI1 (component MK22FN1M0LK12)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-PE_ISR(Cpu_ivINT_SPI1)
-{
-  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
-  PE_DEBUGHALT();
-}
-
-/*
-** ===================================================================
 **     Method      :  Cpu_Cpu_ivINT_I2S0_Tx (component MK22FN1M0LK12)
 **
 **     Description :
@@ -1383,21 +1378,6 @@ PE_ISR(Cpu_ivINT_LPTMR0)
 
 /*
 ** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_PORTB (component MK22FN1M0LK12)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-PE_ISR(Cpu_ivINT_PORTB)
-{
-  /* This code can be changed using the CPU component property "Build Options / Unhandled int code" */
-  PE_DEBUGHALT();
-}
-
-/*
-** ===================================================================
 **     Method      :  Cpu_Cpu_ivINT_PORTC (component MK22FN1M0LK12)
 **
 **     Description :
@@ -1771,9 +1751,10 @@ void __init_hardware(void)
                 SIM_CLKDIV1_OUTDIV2(0x01) |
                 SIM_CLKDIV1_OUTDIV3(0x03) |
                 SIM_CLKDIV1_OUTDIV4(0x03); /* Set the system prescalers to safe value */
-  /* SIM_SCGC5: PORTD=1,PORTC=1,PORTA=1 */
+  /* SIM_SCGC5: PORTD=1,PORTC=1,PORTB=1,PORTA=1 */
   SIM_SCGC5 |= SIM_SCGC5_PORTD_MASK |
                SIM_SCGC5_PORTC_MASK |
+               SIM_SCGC5_PORTB_MASK |
                SIM_SCGC5_PORTA_MASK;   /* Enable clock gate for ports to enable pin routing */
   if ((PMC_REGSC & PMC_REGSC_ACKISO_MASK) != 0x0U) {
     /* PMC_REGSC: ACKISO=1 */
@@ -1919,6 +1900,8 @@ void PE_low_level_init(void)
   NVICIP20 = NVIC_IP_PRI20(0x00);
   /* GPIOA_PDDR: PDD&=~0x4000 */
   GPIOA_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x4000));
+  /* GPIOB_PDDR: PDD&=~2 */
+  GPIOB_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x02));
   MCUC1_Init(); /* ### McuLibConfig "MCUC1" init code ... */
   WAIT1_Init(); /* ### Wait "WAIT1" init code ... */
   CS1_Init(); /* ### CriticalSection "CS1" init code ... */
@@ -1981,6 +1964,16 @@ void PE_low_level_init(void)
   /* ### TimerInt_LDD "TimerIntLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)TimerIntLdd2_Init(NULL);
   /* ### TimerInt "QuadInt" init code ... */
+  /* ### SynchroMaster "SM1" init code ... */
+  SM1_Init();
+  /* ### BitIO_LDD "BitIoLdd22" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd22_Init(NULL);
+  /* ### BitIO_LDD "BitIoLdd23" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)BitIoLdd23_Init(NULL);
+  /* ### ExtInt_LDD "ExtIntLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
+  (void)ExtIntLdd2_Init(NULL);
+  /* ### RNet "RNET1" init code ... */
+  /* Write code here ... */
   /* ### Timeout "TMOUT1" init code ... */
   TMOUT1_Init();
   Tx1_Init(); /* ### RingBuffer "Tx1" init code ... */

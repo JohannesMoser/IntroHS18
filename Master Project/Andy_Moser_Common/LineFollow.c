@@ -85,73 +85,49 @@ static bool FollowSegment(void) {
 }
 
 static void StateMachine(void) {
-	REF_LineKind lineKind;
-	uint16_t refVal;
-	bool stopedFlag = FALSE;
-	switch (LF_currState) {
-	case STATE_IDLE:
-		stopedFlag = FALSE;
+  REF_LineKind lineKind;
 
-		break;
+  switch (LF_currState) {
+    case STATE_IDLE:
+      break;
 
-	case STATE_FOLLOW_SEGMENT:
-		if (!FollowSegment()) {
-			//SHELL_SendString((unsigned char*)"No line, stopped!\r\n");
-			//LF_currState = STATE_STOP; /* stop if we do not have a line any more */
-			LF_currState = STATE_TURN;
-		}
-		break;
+    case STATE_FOLLOW_SEGMENT:
+      if (!FollowSegment()) {
+        //SHELL_SendString((unsigned char*)"No line, stopped!\r\n");
+        //LF_currState = STATE_STOP; /* stop if we do not have a line any more */
+        LF_currState = STATE_TURN;
+      }
+      break;
 
-	case STATE_TURN:
-	//	refVal = REF_GetLineValue();
-		lineKind = REF_GetLineKind();
-		if (lineKind == REF_LINE_FULL) {
-			TURN_Turn(TURN_LEFT90, NULL);
-			//LF_currState = STATE_FINISHED;
-		} else if (lineKind == REF_LINE_LEFT) {
-			TURN_Turn(TURN_LEFT45, NULL);
-			LF_currState = STATE_TURN;
-			break;
-		} else if (lineKind == REF_LINE_RIGHT) {
-			TURN_Turn(TURN_RIGHT45, NULL);
-			LF_currState = STATE_TURN;
-			break;
-		} else if (lineKind == REF_LINE_STRAIGHT) {
-			TURN_Turn(TURN_STRAIGHT, NULL);
-			LF_currState = STATE_FOLLOW_SEGMENT;
-			break;
+    case STATE_TURN:
+      lineKind = REF_GetLineKind();
+      if (lineKind==REF_LINE_FULL) {
+        LF_currState = STATE_FINISHED;
+      } if (lineKind==REF_LINE_NONE) {
+        TURN_Turn(TURN_LEFT180, NULL);
+        DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
+        LF_currState = STATE_FOLLOW_SEGMENT;
+      } else {
+        LF_currState = STATE_STOP;
+      }
+      break;
 
-		} else {
-			if (lineKind == REF_LINE_NONE) {
-				TURN_Turn(TURN_LEFT180, NULL);
-				DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
-				LF_currState = STATE_FOLLOW_SEGMENT;
-			} else {
-				LF_currState = STATE_STOP;
-			}
-		}
-		break;
+    case STATE_FINISHED:
+      SHELL_SendString("Finished!\r\n");
+      LF_currState = STATE_STOP;
+      break;
 
-	case STATE_FINISHED:
-		SHELL_SendString("Finished!\r\n");
-		LF_currState = STATE_STOP;
-		stopedFlag = TRUE;
-
-		break;
-
-	case STATE_STOP:
+    case STATE_STOP:
 #if 0
-		RNETA_SendSignal('C'); /*! \todo */
+      RNETA_SendSignal('C'); /*! \todo */
 #endif
-
-		SHELL_SendString("Stopped!\r\n");
-
-		TURN_Turn(TURN_STOP, NULL);
-		LF_currState = STATE_IDLE;
-
-		break;
-	} /* switch */
+      SHELL_SendString("Stopped!\r\n");
+      TURN_Turn(TURN_STOP, NULL);
+      LF_currState = STATE_IDLE;
+      break;
+  } /* switch */
 }
+
 
 bool LF_IsFollowing(void) {
 	return LF_currState != STATE_IDLE;

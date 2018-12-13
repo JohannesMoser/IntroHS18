@@ -17,7 +17,7 @@ by the component.
 <tr><td colspan="4" class="ttitle1">IntFlashLdd1 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x4004803C</td><td>SIM_SCGC6</td>
-<td class="regNotResetVal">0x43800001</td>
+<td class="regNotResetVal">0x43802001</td>
  <td>SIM_SCGC6 register, peripheral IntFlashLdd1.</td></tr>
 </table>
 Color Denotes Reset Value
@@ -73,7 +73,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004803C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x43800001</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x43802001</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x40000001</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>31</td><td>DAC0</td><td>0x00</td><td>DAC0 Clock Gate Control</td>
@@ -87,7 +87,7 @@ registers of the peripheral(s) configured by the component.
 <tr><td>21</td><td>USBDCD</td><td>0x00</td><td>USB DCD Clock Gate Control</td>
 <tr><td>18</td><td>CRC</td><td>0x00</td><td>CRC Clock Gate Control</td>
 <tr><td>15</td><td>I2S</td><td>0x00</td><td>I2S Clock Gate Control</td>
-<tr><td>13</td><td>SPI1</td><td>0x00</td><td>SPI1 Clock Gate Control</td>
+<tr><td>13</td><td>SPI1</td><td>0x01</td><td>SPI1 Clock Gate Control</td>
 <tr><td>12</td><td>SPI0</td><td>0x00</td><td>SPI0 Clock Gate Control</td>
 <tr><td>4</td><td>FLEXCAN0</td><td>0x00</td><td>FlexCAN0 Clock Gate Control</td>
 <tr><td>1</td><td>DMAMUX</td><td>0x00</td><td>DMA Mux Clock Gate Control</td>
@@ -144,7 +144,7 @@ by the component.
 <tr><td colspan="4" class="ttitle1">IntFlashLdd1 Initialization</td></tr>
 <tr><td class="ttitle2">Address</td><td class="ttitle2">Register</td><td class="ttitle2">Register Value</td><td class="ttitle2">Register Description</td></tr>
 <tr><td>0x4004803C</td><td>SIM_SCGC6</td>
-<td class="regNotResetVal">0x43800001</td>
+<td class="regNotResetVal">0x43802001</td>
  <td>SIM_SCGC6 register, peripheral IntFlashLdd1.</td></tr>
 </table>
 Color Denotes Reset Value
@@ -200,7 +200,7 @@ registers of the peripheral(s) configured by the component.
         
 </div>
 <table class="regtbl2"><tr><td class="trowtit" colspan="2">Address</td><td colspan="2">0x4004803C</td></tr>
-<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x43800001</td></tr>
+<tr class="trowtit"><td  class="trowtit" colspan="2">Initial value</td><td colspan="2">0x43802001</td></tr>
 <tr class="trowtit"><td  class="trowtit" colspan="2">After-reset value</td><td colspan="2">0x40000001</td></tr>
 <tr><td class="ttitle2">Bit</td><td class="ttitle2">Field</td><td class="ttitle2">Value</td><td class="ttitle2">Description</td></tr>
 <tr><td>31</td><td>DAC0</td><td>0x00</td><td>DAC0 Clock Gate Control</td>
@@ -214,7 +214,7 @@ registers of the peripheral(s) configured by the component.
 <tr><td>21</td><td>USBDCD</td><td>0x00</td><td>USB DCD Clock Gate Control</td>
 <tr><td>18</td><td>CRC</td><td>0x00</td><td>CRC Clock Gate Control</td>
 <tr><td>15</td><td>I2S</td><td>0x00</td><td>I2S Clock Gate Control</td>
-<tr><td>13</td><td>SPI1</td><td>0x00</td><td>SPI1 Clock Gate Control</td>
+<tr><td>13</td><td>SPI1</td><td>0x01</td><td>SPI1 Clock Gate Control</td>
 <tr><td>12</td><td>SPI0</td><td>0x00</td><td>SPI0 Clock Gate Control</td>
 <tr><td>4</td><td>FLEXCAN0</td><td>0x00</td><td>FlexCAN0 Clock Gate Control</td>
 <tr><td>1</td><td>DMAMUX</td><td>0x00</td><td>DMA Mux Clock Gate Control</td>

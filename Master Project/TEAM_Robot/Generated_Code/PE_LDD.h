@@ -6,7 +6,7 @@
 **     Version     : Component 01.014, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-08, 15:13, # CodeGen: 15
+**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -122,6 +122,16 @@
 #include "QuadInt.h"
 #include "TimerIntLdd2.h"
 #include "TU_QuadInt.h"
+#include "RNET1.h"
+#include "RF1.h"
+#include "CE1.h"
+#include "BitIoLdd22.h"
+#include "CSN1.h"
+#include "BitIoLdd23.h"
+#include "IRQ1.h"
+#include "ExtIntLdd2.h"
+#include "SM1.h"
+#include "SMasterLdd2.h"
 #include "TMOUT1.h"
 #include "USB1.h"
 #include "CDC1.h"

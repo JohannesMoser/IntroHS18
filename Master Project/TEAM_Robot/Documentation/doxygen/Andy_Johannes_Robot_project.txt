@@ -53,6 +53,10 @@
 - \subpage PwmLdd3
 - \subpage TU_QuadInt
 - \subpage TimerIntLdd2
+- \subpage SMasterLdd2
+- \subpage BitIoLdd22
+- \subpage BitIoLdd23
+- \subpage ExtIntLdd2
 - \subpage IntFlashLdd1
 - \subpage IntFlashLdd1
 - \subpage USB0

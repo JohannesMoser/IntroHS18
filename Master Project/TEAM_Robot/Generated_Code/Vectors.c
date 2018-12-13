@@ -6,7 +6,7 @@
 **     Version     : Component 01.014, Driver 01.04, CPU db: 3.00.000
 **     Repository  : Kinetis
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-29, 16:14, # CodeGen: 46
+**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -116,6 +116,16 @@
   #include "QuadInt.h"
   #include "TimerIntLdd2.h"
   #include "TU_QuadInt.h"
+  #include "RNET1.h"
+  #include "RF1.h"
+  #include "CE1.h"
+  #include "BitIoLdd22.h"
+  #include "CSN1.h"
+  #include "BitIoLdd23.h"
+  #include "IRQ1.h"
+  #include "ExtIntLdd2.h"
+  #include "SM1.h"
+  #include "SMasterLdd2.h"
   #include "TMOUT1.h"
   #include "USB1.h"
   #include "CDC1.h"
@@ -188,7 +198,7 @@
     (tIsrFunc)&Cpu_ivINT_I2C0,         /* 0x28  0x000000A0   -   ivINT_I2C0                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_I2C1,         /* 0x29  0x000000A4   -   ivINT_I2C1                     unused by PE */
     (tIsrFunc)&Cpu_ivINT_SPI0,         /* 0x2A  0x000000A8   -   ivINT_SPI0                     unused by PE */
-    (tIsrFunc)&Cpu_ivINT_SPI1,         /* 0x2B  0x000000AC   -   ivINT_SPI1                     unused by PE */
+    (tIsrFunc)&SMasterLdd2_Interrupt,  /* 0x2B  0x000000AC   8   ivINT_SPI1                     used by PE */
     (tIsrFunc)&Cpu_ivINT_I2S0_Tx,      /* 0x2C  0x000000B0   -   ivINT_I2S0_Tx                  unused by PE */
     (tIsrFunc)&Cpu_ivINT_I2S0_Rx,      /* 0x2D  0x000000B4   -   ivINT_I2S0_Rx                  unused by PE */
     (tIsrFunc)&Cpu_ivINT_Reserved46,   /* 0x2E  0x000000B8   -   ivINT_Reserved46               unused by PE */
@@ -221,7 +231,7 @@
     (tIsrFunc)&Cpu_ivINT_MCG,          /* 0x49  0x00000124   -   ivINT_MCG                      unused by PE */
     (tIsrFunc)&Cpu_ivINT_LPTMR0,       /* 0x4A  0x00000128   -   ivINT_LPTMR0                   unused by PE */
     (tIsrFunc)&ExtIntLdd1_Interrupt,   /* 0x4B  0x0000012C   8   ivINT_PORTA                    used by PE */
-    (tIsrFunc)&Cpu_ivINT_PORTB,        /* 0x4C  0x00000130   -   ivINT_PORTB                    unused by PE */
+    (tIsrFunc)&ExtIntLdd2_Interrupt,   /* 0x4C  0x00000130   8   ivINT_PORTB                    used by PE */
     (tIsrFunc)&Cpu_ivINT_PORTC,        /* 0x4D  0x00000134   -   ivINT_PORTC                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTD,        /* 0x4E  0x00000138   -   ivINT_PORTD                    unused by PE */
     (tIsrFunc)&Cpu_ivINT_PORTE,        /* 0x4F  0x0000013C   -   ivINT_PORTE                    unused by PE */

@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-02, 15:05, # CodeGen: 11
+**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
 **     Abstract    :
 **
 **     Settings    :
@@ -593,17 +593,6 @@ PE_ISR(Cpu_ivINT_SPI0);
 ** ===================================================================
 */
 
-PE_ISR(Cpu_ivINT_SPI1);
-/*
-** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_SPI1 (component MK22FN1M0LK12)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-
 PE_ISR(Cpu_ivINT_I2S0_Tx);
 /*
 ** ===================================================================
@@ -894,17 +883,6 @@ PE_ISR(Cpu_ivINT_LPTMR0);
 /*
 ** ===================================================================
 **     Method      :  Cpu_Cpu_ivINT_LPTMR0 (component MK22FN1M0LK12)
-**
-**     Description :
-**         This ISR services an unused interrupt/exception vector.
-**         This method is internal. It is used by Processor Expert only.
-** ===================================================================
-*/
-
-PE_ISR(Cpu_ivINT_PORTB);
-/*
-** ===================================================================
-**     Method      :  Cpu_Cpu_ivINT_PORTB (component MK22FN1M0LK12)
 **
 **     Description :
 **         This ISR services an unused interrupt/exception vector.
