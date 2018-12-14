@@ -54,6 +54,9 @@
 #endif
 #include "Sumo.h"
 #include "Tacho.h"
+#include "LineFollow.h"
+#include "RNWK.h"
+
 
 #if PL_CONFIG_HAS_EVENTS
 
@@ -101,13 +104,20 @@ void APP_EventHandler(EVNT_Handle event) {
 
 #if PL_CONFIG_NOF_KEYS>=1
 	case EVNT_SW1_PRESSED:
-		BtnMsg(1, "pressed");
+		//BtnMsg(1, "pressed");
+		//DRV_SetMode()
+		if(LF_IsFollowing() != TRUE){
+			LF_StartFollowing();
+		}else{
+			LF_StopFollowing();
+		}
+
 		break;
 	case EVNT_SW1_LPRESSED:
-		BtnMsg(1, "long pressed");
+		//BtnMsg(1, "long pressed");
 		break;
 	case EVNT_SW1_RELEASED:
-		BtnMsg(1, "released");
+		//BtnMsg(1, "released");
 		break;
 #endif
 
@@ -296,6 +306,19 @@ void init_SW_timer(void){
 
 
 }
+static void eventTask(void *pvParameters) {
+  (void)pvParameters; /* not used */
+	for (;;) {
+		EVNT_HandleEvent(APP_EventHandler, TRUE);
+	    vTaskDelay(pdMS_TO_TICKS(10));
+	}
+}
+
+void init_Event_Task(void){
+	  if (xTaskCreate(eventTask, "eventTask", 900/sizeof(StackType_t), NULL, tskIDLE_PRIORITY+1, NULL) != pdPASS) {
+	    for(;;){} /* error */
+	  }
+}
 
 void APP_Start(void) {
 	PL_Init();
@@ -308,9 +331,11 @@ void APP_Start(void) {
 	/* enable interrupts */
 	EVNT_HandleEvent(APP_EventHandler, clear);
 
+	PID_LoadSettingsFromFlash();
 
-
+	init_Event_Task();
 	init_SW_timer();
+	RNWK_SetThisNodeAddr(0x67);
 
 
 	vTaskStartScheduler();

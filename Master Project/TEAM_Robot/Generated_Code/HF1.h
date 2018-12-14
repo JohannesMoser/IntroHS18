@@ -4,11 +4,11 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : HardFault
-**     Version     : Component 01.021, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.020, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
-**          Component to simplify hard faults for ARM (Kinetis, S32K).
+**          Component to simplify hard faults for ARM/Kinetis.
 **     Settings    :
 **          Component name                                 : HF1
 **     Contents    :
@@ -51,7 +51,7 @@
 ** @file HF1.h
 ** @version 01.00
 ** @brief
-**          Component to simplify hard faults for ARM (Kinetis, S32K).
+**          Component to simplify hard faults for ARM/Kinetis.
 */         
 /*!
 **  @addtogroup HF1_module HF1 module documentation

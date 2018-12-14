@@ -6,7 +6,7 @@
 **     Component   : RNet
 **     Version     : Component 01.095, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
+**     Date/Time   : 2018-12-13, 17:05, # CodeGen: 43
 **     Abstract    :
 **          This components implements the RNet Stack.
 **     Settings    :
@@ -15,7 +15,7 @@
 **            Transceiver Type                             : nRF24L01+
 **            nRF24L01+                                    : Enabled
 **              nRF24L01+                                  : RF1
-**              Radio Channel                              : 42
+**              Radio Channel                              : 89
 **              Data Rate                                  : 2000 kBit
 **              Payload Size                               : 32
 **              Address                                    : 0x11, 0x22, 0x33, 0x44, 0x55

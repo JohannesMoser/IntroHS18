@@ -680,7 +680,7 @@ static void ReflTask(void *pvParameters) {
 	(void) pvParameters; /* not used */
 	for (;;) {
 		REF_StateMachine();
-		FRTOS1_vTaskDelay(10/portTICK_PERIOD_MS);
+		FRTOS1_vTaskDelay(5/portTICK_PERIOD_MS);
 	}
 }
 
@@ -702,7 +702,7 @@ void REF_Init(void) {
 	timerHandle = RefCnt_Init(NULL);
 	/*! \todo You might need to adjust priority or other task settings */
 	if (xTaskCreate(ReflTask, "Refl", 600 / sizeof(StackType_t), NULL,
-			tskIDLE_PRIORITY, NULL) != pdPASS) {
+			tskIDLE_PRIORITY+2, NULL) != pdPASS) {
 		for (;;) {
 		} /* error */
 	}

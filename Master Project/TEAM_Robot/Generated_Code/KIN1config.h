@@ -1,6 +1,6 @@
 /**
  * \file
- * \brief Configuration header file for Kinetis Tools (or ARM in general)
+ * \brief Configuration header file for Kinetis Tools
  *
  * This header file is used to configure settings of the Kinetis Tools module.
  */

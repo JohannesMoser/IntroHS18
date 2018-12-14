@@ -31,9 +31,4 @@
     /*!< 1: Use FreeRTOS Mutex, 0: Do not use FreeRTOS mutex */
 #endif
 
-#ifndef RF1_CONFIG_INITIALIZE_DURING_STARTUP
-  #define RF1_CONFIG_INITIALIZE_DURING_STARTUP  0
-    /*!< 1: Call Init() during startup, 0: Do not call Init() */
-#endif
-
 #endif /* __RF1_CONFIG_H */

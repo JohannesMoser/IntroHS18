@@ -4,9 +4,9 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : Wait
-**     Version     : Component 01.083, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.082, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
 **          Implements busy waiting routines.
 **     Settings    :

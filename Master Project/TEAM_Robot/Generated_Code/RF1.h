@@ -4,9 +4,9 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : nRF24L01
-**     Version     : Component 01.103, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.101, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
 **         This component implements a driver for the Nordic Semiconductor nRF24L01 2.4 GHz transceiver.
 **     Settings    :

@@ -4,10 +4,10 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : LED
-**     Version     : Component 01.075, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.074, Driver 01.00, CPU db: 3.00.000
 **     Repository  : My Components
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-11-16, 01:09, # CodeGen: 18
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
 **          This component implements a universal driver for a single LED.
 **     Settings    :
@@ -33,7 +33,7 @@
 **         Deinit       - void LED_IR_Deinit(void);
 **         Init         - void LED_IR_Init(void);
 **
-**     * Copyright (c) 2013-2018, Erich Styger
+**     * Copyright (c) 2013-2017, Erich Styger
 **      * Web:         https://mcuoneclipse.com
 **      * SourceForge: https://sourceforge.net/projects/mcuoneclipse
 **      * Git:         https://github.com/ErichStyger/McuOnEclipse_PEx

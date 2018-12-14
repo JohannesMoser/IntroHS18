@@ -1,10 +1,3 @@
-/**
- * \file
- * \brief Configuration header file for HardFault
- *
- * This header file is used to configure settings of the HardFault module.
- */
-
 #ifndef __HF1_CONFIG_H
 #define __HF1_CONFIG_H
 

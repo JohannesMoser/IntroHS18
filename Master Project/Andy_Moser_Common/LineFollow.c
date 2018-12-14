@@ -37,6 +37,7 @@ typedef enum {
 	STATE_FOLLOW_SEGMENT, /* line following segment, going forward */
 	STATE_TURN, /* reached an intersection, turning around */
 	STATE_FINISHED, /* reached finish area */
+	STATE_CROSSOVER,
 	STATE_STOP /* stop the engines */
 } StateType;
 
@@ -95,28 +96,67 @@ static void StateMachine(void) {
       if (!FollowSegment()) {
         //SHELL_SendString((unsigned char*)"No line, stopped!\r\n");
         //LF_currState = STATE_STOP; /* stop if we do not have a line any more */
-        LF_currState = STATE_TURN;
+
+    	  LF_currState = STATE_TURN;
       }
       break;
 
     case STATE_TURN:
       lineKind = REF_GetLineKind();
       if (lineKind==REF_LINE_FULL) {
-        LF_currState = STATE_FINISHED;
-      } if (lineKind==REF_LINE_NONE) {
-        TURN_Turn(TURN_LEFT180, NULL);
+
+    	  TURN_Turn(TURN_STEP_LINE_FW_POST_LINE, NULL);
+    	  //LF_currState = STATE_FINISHED;
+    	  lineKind = REF_GetLineKind();
+    	  if(lineKind == REF_LINE_FULL){
+    		  LF_currState = STATE_FINISHED;
+    	  }else{
+    		 LF_currState = STATE_CROSSOVER;
+    	  }
+
+
+      }else if(lineKind == REF_LINE_STRAIGHT){
+
+		  TURN_Turn(TURN_RIGHT90, NULL);
+		  DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
+		  LF_currState = STATE_FOLLOW_SEGMENT;
+
+      }else if (lineKind==REF_LINE_NONE) {
+
+        TURN_Turn(TURN_RIGHT90, NULL);
         DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
         LF_currState = STATE_FOLLOW_SEGMENT;
-      } else {
+
+	  }else if(lineKind == REF_LINE_LEFT) {
+
+		  TURN_Turn(TURN_LEFT45, NULL);
+		  DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
+		  LF_currState = STATE_FOLLOW_SEGMENT;
+
+	  }else if(lineKind == REF_LINE_RIGHT){
+
+		  TURN_Turn(TURN_RIGHT45, NULL);
+		  DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
+		  LF_currState = STATE_FOLLOW_SEGMENT;
+
+	  }else {
         LF_currState = STATE_STOP;
       }
       break;
 
     case STATE_FINISHED:
-      SHELL_SendString("Finished!\r\n");
+      //SHELL_SendString("Finished!\r\n");
       LF_currState = STATE_STOP;
       break;
-
+    case STATE_CROSSOVER:
+    	TURN_Turn(TURN_RIGHT90, NULL);
+    	lineKind = REF_GetLineKind();
+    	if(lineKind == REF_LINE_NONE){
+    		TURN_Turn(TURN_LEFT180, NULL);
+    	}
+    	DRV_SetMode(DRV_MODE_NONE); /* disable position mode */
+    	        LF_currState = STATE_FOLLOW_SEGMENT;
+    	break;
     case STATE_STOP:
 #if 0
       RNETA_SendSignal('C'); /*! \todo */
@@ -226,7 +266,7 @@ void LF_Deinit(void) {
 void LF_Init(void) {
 	LF_currState = STATE_IDLE;
 	if (xTaskCreate(LineTask, "Line", 400 / sizeof(StackType_t), NULL,
-	tskIDLE_PRIORITY, &LFTaskHandle) != pdPASS) {
+	tskIDLE_PRIORITY+3, &LFTaskHandle) != pdPASS) {
 		for (;;) {
 		} /* error */
 	}

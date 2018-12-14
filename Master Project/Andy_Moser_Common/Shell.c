@@ -380,8 +380,8 @@ static void ShellTask(void *pvParameters) {
   for(i=0;i<sizeof(ios)/sizeof(ios[0]);i++) {
     ios[i].buf[0] = '\0';
   }
-  SHELL_SendString("Shell task started!\r\n");
-  (void)CLS1_ParseWithCommandTable((unsigned char*)CLS1_CMD_HELP, ios[0].stdio, CmdParserTable);
+  //SHELL_SendString("Shell task started!\r\n");
+  //(void)CLS1_ParseWithCommandTable((unsigned char*)CLS1_CMD_HELP, ios[0].stdio, CmdParserTable);
   for(;;) {
     /* process all I/Os */
     for(i=0;i<sizeof(ios)/sizeof(ios[0]);i++) {

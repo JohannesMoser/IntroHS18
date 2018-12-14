@@ -50,6 +50,7 @@ uint8_t PID_ParseCommand(const unsigned char *cmd, bool *handled, const CLS1_Std
  */
 void PID_Speed(int32_t currSpeed, int32_t setSpeed, bool isLeft);
 
+uint8_t PID_LoadSettingsFromFlash(void);
 /*!
  * \brief Performs PID closed loop calculation for the line position
  * \param currPos Current position of wheel

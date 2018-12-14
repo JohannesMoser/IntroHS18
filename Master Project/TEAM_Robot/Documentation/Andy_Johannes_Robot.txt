@@ -99,8 +99,6 @@ Module "KIN1"      (component KinetisTools)
    - KIN1_DisableCycleCounter -Disables the cycle counter.
    - KIN1_GetCycleCounter -Return the current cycle counter value
    - KIN1_ParseCommand -Shell Command Line parser. Method is only available if Shell is enabled in the component properties.
-   - KIN1_Deinit -Driver de-initialization routine
-   - KIN1_Init -Driver initialization routine
 
 Module "UTIL1"     (component Utility)
    - UTIL1_strcpy -Same as normal strcpy, but safe as it does not write beyond the buffer.

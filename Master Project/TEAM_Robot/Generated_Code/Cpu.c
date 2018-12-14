@@ -8,7 +8,7 @@
 **     Repository  : Kinetis
 **     Datasheet   : K22P144M100SF5RM, Rev.2, Apr 2013
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-12-13, 14:33, # CodeGen: 41
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
 **
 **     Settings    :
@@ -1902,14 +1902,15 @@ void PE_low_level_init(void)
   GPIOA_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x4000));
   /* GPIOB_PDDR: PDD&=~2 */
   GPIOB_PDDR &= (uint32_t)~(uint32_t)(GPIO_PDDR_PDD(0x02));
-  MCUC1_Init(); /* ### McuLibConfig "MCUC1" init code ... */
+  /* ### McuLibConfig "MCUC1" init code ... */
+  MCUC1_Init();
   WAIT1_Init(); /* ### Wait "WAIT1" init code ... */
   CS1_Init(); /* ### CriticalSection "CS1" init code ... */
   XF1_Init(); /* ### XFormat "XF1" init code ... */
-  UTIL1_Init(); /* ### Utility "UTIL1" init code ... */
   CLS1_Init(); /* ### Shell "CLS1" init code ... */
-  HF1_Init(); /* ### HardFault "HF1" init code ... */
-  KIN1_Init(); /* ### KinetisTools "KIN1" init code ... */
+  /* ### HardFault "HF1" init code ... */
+  HF1_Init();
+  /* ### KinetisTools "KIN1" init code ... */
   /* ### BitIO_LDD "BitIoLdd1" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd1_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -1928,7 +1929,8 @@ void PE_low_level_init(void)
   (void)BitIoLdd4_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd5" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd5_Init(NULL);
-  LED_IR_Init(); /* ### LED "LED_IR" init code ... */
+  /* ### LED "LED_IR" init code ... */
+  LED_IR_Init(); /* initialize LED driver */
   /* ### BitIO_LDD "BitIoLdd6" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)BitIoLdd6_Init(NULL);
   /* ### BitIO_LDD "BitIoLdd7" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
@@ -1972,6 +1974,7 @@ void PE_low_level_init(void)
   (void)BitIoLdd23_Init(NULL);
   /* ### ExtInt_LDD "ExtIntLdd2" component auto initialization. Auto initialization feature can be disabled by component property "Auto initialization". */
   (void)ExtIntLdd2_Init(NULL);
+  /* ### nRF24L01 "RF1" init code ... */
   /* ### RNet "RNET1" init code ... */
   /* Write code here ... */
   /* ### Timeout "TMOUT1" init code ... */

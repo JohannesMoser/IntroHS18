@@ -327,8 +327,6 @@ PE_DEBUGHALT();
       <DisableCycleCounter v="generate code" />
       <GetCycleCounter v="generate code" />
       <ParseCommand v="generate code" />
-      <Deinit v="generate code" />
-      <Init v="generate code" />
     </Methods>
     <Events>
       <EmptySection_DummyValue />
@@ -1100,7 +1098,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="FRTOS1" />
-      <RTOS_Version v="V10.1.1" />
+      <RTOS_Version v="V10.0.1" />
       <SDK v="MCUC1" />
       <boolgroup name="Kinetis SDK" v="Disabled" />
       <group name="Custom Port">
@@ -1114,9 +1112,9 @@ push-pull
       <Application_Task_Tags v="no" />
       <Thread_Local_Storage_Pointers v="0" />
       <Use_Trace_Facility v="yes" />
-      <LinkTimeOptimizer_Helper v="no" />
       <group name="Debug Helpers">
         <Enable_GDB_Debug_Helper v="no" />
+        <Enable_LinkTimeOptimizer_Helper v="no" />
         <uxTopUsedPriority v="no" />
         <Heap_Indication_Constant v="no" />
         <Task_C_Additions v="no" />
@@ -1739,7 +1737,7 @@ push-pull
     <Enabled v="Y" />
     <Properties>
       <Component_name v="SYS1" />
-      <Version v="V2.52b" />
+      <Version v="V2.52a" />
       <Application_Name v="&amp;quot;INTRO Robot&amp;quot;" />
       <Device_Name v="&amp;quot;K22FX512&amp;quot;" />
       <RAM_Base v="536870912" />
@@ -3259,7 +3257,7 @@ push-pull
         <Transceiver_Type v="nRF24L01+" />
         <boolgroup name="nRF24L01+" v="Enabled">
           <nRF24L01_ v="RF1" />
-          <Radio_Channel v="42" />
+          <Radio_Channel v="89" />
           <Data_Rate v="2000 kBit" />
           <Payload_Size v="32" />
           <Address__data_pipe_0_ v="0x11, 0x22, 0x33, 0x44, 0x55" />
@@ -3512,7 +3510,6 @@ push-pull
         </inhrbean>
       </boolgroup>
       <Mutex v="yes" />
-      <Init___during_Startup v="no" />
     </Properties>
     <Methods>
       <ConfigureSPI v="generate code" />

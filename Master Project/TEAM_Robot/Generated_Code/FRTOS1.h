@@ -4,14 +4,14 @@
 **     Project     : Andy_Johannes_Robot
 **     Processor   : MK22FX512VLK12
 **     Component   : FreeRTOS
-**     Version     : Component 01.562, Driver 01.00, CPU db: 3.00.000
+**     Version     : Component 01.554, Driver 01.00, CPU db: 3.00.000
 **     Compiler    : GNU C Compiler
-**     Date/Time   : 2018-12-13, 14:26, # CodeGen: 40
+**     Date/Time   : 2018-12-13, 15:22, # CodeGen: 42
 **     Abstract    :
 **          This component implements the FreeRTOS Realtime Operating System
 **     Settings    :
 **          Component name                                 : FRTOS1
-**          RTOS Version                                   : V10.1.1
+**          RTOS Version                                   : V10.0.1
 **          SDK                                            : MCUC1
 **          Kinetis SDK                                    : Disabled
 **          Custom Port                                    : Custom port settings
@@ -257,14 +257,13 @@
 **  @{
 */         
 
-
 #ifndef __FRTOS1_H
 #define __FRTOS1_H
 
 /* MODULE FRTOS1. */
 #include "MCUC1.h" /* SDK and API used */
 #include "FreeRTOSConfig.h"
-#include "FRTOS1config.h" /* configuration file for component */
+#include "FRTOS1config.h" /* configuration */
 
 #if configUSE_SHELL
   #include "CLS1.h"

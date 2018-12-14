@@ -407,7 +407,7 @@ static uint8_t ParsePidParameter(PID_Config *config, const unsigned char *cmd,
 	return res;
 }
 #if PL_CONFIG_HAS_CONFIG_NVM
-static uint8_t PID_LoadSettingsFromFlash(void) {
+uint8_t PID_LoadSettingsFromFlash(void) {
 	PIDConfig_t *ptr;
 
 	ptr = (PIDConfig_t*) NVMC_GetPIDData();

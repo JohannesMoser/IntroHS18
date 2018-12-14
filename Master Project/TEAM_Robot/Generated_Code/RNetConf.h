@@ -48,7 +48,7 @@
 #endif
 
 #ifndef RNET_CONFIG_TRANSCEIVER_CHANNEL
-#define RNET_CONFIG_TRANSCEIVER_CHANNEL  (42)
+#define RNET_CONFIG_TRANSCEIVER_CHANNEL  (89)
   /*!< default radio channel of transceiver */
 #endif
 

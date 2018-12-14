@@ -29,7 +29,7 @@
   #include "LCD.h"
 #endif
 
-static RNWK_ShortAddrType APP_dstAddr = RNWK_ADDR_BROADCAST; /* destination node address */
+static RNWK_ShortAddrType APP_dstAddr = 0xaf; /* destination node address */
 
 typedef enum {
   RNETA_NONE,
